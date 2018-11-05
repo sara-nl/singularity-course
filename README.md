@@ -34,6 +34,12 @@ Program:
 --------
 9.00 - 9.20  -  Presentation: Introduction to containers
 
-9.20 - 10.30   -  Hands on: Interacting with Docker containers + Singularity installation on your laptop
+9.20 - 10.00   -  Hands on: Interacting with Docker containers on your laptop
 
-10.30 - 12.30  - Running Singularity containers on a Supercomputer
+10:00 - 10.20  -  Hands on: Singularity installation on your laptop
+
+10.20 - 10.30  - Break
+
+10.30 - 11:00  -  Demo followed by Hands on: Build singularity containers 
+
+11:00 - 12:30  -  Hands on: Running Singularity containers on a Supercomputer
