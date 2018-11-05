@@ -8,18 +8,23 @@ The workshop aims to provide an introduction and hands-on experience in containe
 
 **Objectives**
 
- Understanding containerization basics
- Hands-on experience with Docker & Singularity
- Hands-on experience in building containerized applications
- Hands-on experience in running containerized applications on your laptop and different HPC systems
+ - Understanding containerization basics
+ 
+ - Hands-on experience with Docker & Singularity
+ 
+ - Hands-on experience in building containerized applications
+ 
+ - Hands-on experience in running containerized applications on your laptop and different HPC systems
 
 **Target group / Prerequisites**
 
 Scientists or application developers interested in software portability among various compute platforms and particularly containerization are welcome. Prior knowledge about containerization is not required.
 
-  Familiarity with Linux commands
-  Familiarity with batch systems (ssh access, job submission), preferably you have followed Introduction to cluster computing course (cluster-computing)
-  Please install Docker to your laptop prior to the course. Install from https://store.docker.com/search?offering=community&type=edition (may require creation of a free Docker account)
+  - Familiarity with Linux commands
+  
+  - Familiarity with batch systems (ssh access, job submission), preferably you have followed Introduction to cluster computing course (cluster-computing)
+  
+  - Please install Docker to your laptop prior to the course. Install from https://store.docker.com/search?offering=community&type=edition (may require creation of a free Docker account)
 
 **Where**: VU campus, Room - WN-F201 
 
