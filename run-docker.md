@@ -5,12 +5,12 @@
 
 ### <a name="start-docker"></a> 1. Start docker daemon
 
-* Linux: Open a terminal in your laptop
+* Linux: Open a terminal in your laptop and run
 
     ```sh
     sudo systemctl start docker
     ```
-    or 
+    if the above command fails run 
     ```sh
     sudo service docker start
     ```
@@ -21,7 +21,7 @@
   
 ### <a name="check-docker"></a> 2. Check the docker installation
 
-* Run the following commands in a terminal. 
+* Getting started: Run the following commands in a terminal 
 
     ```sh
     docker --version
@@ -34,6 +34,7 @@ Image: An image is an executable package that includes everything needed to run 
 Container: A container is a runtime instance of an image--what the image becomes when executed. 
 
 This command downloads a test image and runs it in a container. 
+
     ```sh
     docker run hello-world
     ```
