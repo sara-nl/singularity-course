@@ -1,8 +1,6 @@
 # Running docker on your workstation
 
 1. [Start docker daemon](#start-docker)
-2. [Environment set up](#cartesius-env)
-3. [Submit a job](#job-submit)
 
 ### <a name="start-docker"></a> 1. Start docker daemon
 
@@ -22,10 +20,11 @@
   
 ### Check the docker installation
 
-* This command downloads a test image and runs it in a container. 
+* Run the following command in a terminal. This command downloads a test image and runs it in a container. 
 
     ```sh
-    sudo docker run hello-world
+    docker --version
+    docker run hello-world
     ```
 
 
