@@ -24,5 +24,14 @@ Here are your first steps:
  ssh username@cartesius.surfsara.nl #replace `username` with the username assigned to you
  ```
   
+#### Get familiar with the UI 
+
+* Find your home directory and its content:
+
+```sh
+pwd
+
+ls -l
+```
 
 
