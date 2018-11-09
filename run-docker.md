@@ -27,7 +27,7 @@
     docker --version
     docker run hello-world
     ```
-Image: An image is an executable package that includes everything needed to run an application. 
+Image: An image is an executable package that includes everything needed to run an application.    
 Container: A container is a runtime instance of an image--what the image becomes when executed. 
 
 
