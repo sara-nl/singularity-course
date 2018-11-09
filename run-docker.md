@@ -30,7 +30,7 @@
     docker container ls --all
     ```
 
-Image: An image is an executable package that includes everything needed to run an application.    
+Image: An image  is an executable package that includes everything needed to run an application.    
 Container: A container is a runtime instance of an image--what the image becomes when executed. 
 
 This command downloads a test image and runs it in a container. 
