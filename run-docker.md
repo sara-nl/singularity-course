@@ -42,5 +42,5 @@ Container: A container is a runtime instance of an image--what the image becomes
     docker container ls --all   # can you see your hello-world container?
     ```  
 Where did it download the image and where did the container run?
-#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/
+<!---#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/>
 
