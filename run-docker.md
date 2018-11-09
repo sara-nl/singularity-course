@@ -2,6 +2,7 @@
 
 1. [Start docker daemon](#start-docker)
 2. [Test Docker installation](#check-docker)
+3. [Run interactive containers](#run-interactive)
 
 ### <a name="start-docker"></a> 1. Start docker daemon
 
@@ -41,6 +42,14 @@ Container: A container is a runtime instance of an image--what the image becomes
     docker image ls  # can you see your hello-world image?
     docker container ls --all   # can you see your hello-world container?
     ```  
-Where did it download the image and where did the container run? 
+    
+###<a name="run-interactive"></a> 3. Run interactive containers
+
+* The following command downloads the bash:latest image and runs it
+
+   ```sh
+   docker run -it bash
+   ```
+    
 <!---#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/>
 
