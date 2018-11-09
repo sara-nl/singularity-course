@@ -12,11 +12,17 @@ Here are your first steps:
 * Open a terminal in your laptop
   * Windows users only: 
     * Make sure that Xming program is running. If not, start it first.
-* Type the following commands to prepare your environment support graphical windows (press enter to submit each command):
+    * Type the following commands to prepare your environment support graphical windows (press enter to submit each command):
+  
   
     ```sh
-     ssh username@cartesius.surfsara.nl #replace `username` with the username assigned to you
+    echo "export DISPLAY=localhost:0.0" >> $HOME/.bashrc
+    source $HOME/.bashrc
     ```
+    
+ ```ss
+ ssh username@cartesius.surfsara.nl #replace `username` with the username assigned to you
+ ```
   
 
 
