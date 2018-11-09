@@ -33,11 +33,14 @@
 Image: An image  is an executable package that includes everything needed to run an application.    
 Container: A container is a runtime instance of an image--what the image becomes when executed. 
 
-This command downloads a test image and runs it in a container. 
+* This command downloads a test image and runs it in a container. 
 
 
     ```sh
-        docker run hello-world
-    ```
-   
+    docker run hello-world
+    docker image ls  # can you see your hello-world image?
+    docker container ls --all   # can you see your hello-world container?
+    ```  
+Where did it download the image and where did the container run?
+#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/
 
