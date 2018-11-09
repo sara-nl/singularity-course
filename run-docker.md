@@ -35,9 +35,9 @@ Container: A container is a runtime instance of an image--what the image becomes
 
 This command downloads a test image and runs it in a container. 
 
+
     ```sh
-    docker run hello-world
+        docker run hello-world
     ```
-    
-    
+   
 
