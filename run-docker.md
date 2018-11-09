@@ -21,14 +21,20 @@
   
 ### <a name="check-docker"></a> 2. Check the docker installation
 
-* Run the following command in a terminal. This command downloads a test image and runs it in a container. 
+* Run the following commands in a terminal. 
 
     ```sh
     docker --version
-    docker run hello-world
+    docker info
+    docker image ls
+    docker container ls --all
     ```
+
 Image: An image is an executable package that includes everything needed to run an application.    
 Container: A container is a runtime instance of an image--what the image becomes when executed. 
 
-
+This command downloads a test image and runs it in a container. 
+    ```sh
+    docker run hello-world
+    ```
 
