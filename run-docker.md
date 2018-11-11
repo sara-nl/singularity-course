@@ -49,11 +49,11 @@ Container: A container is a runtime instance of an image--what the image becomes
 
    ```sh
    $docker run -it bash
-   $ls #run similar bash commands to see what the environment looks like
+   $ls #run similar linux commands to see what the environment looks like
    $exit
    $docker container ls -all  # or docker ps -a
    ```
-   -i: This starts the container in interactive mode
+   -i: This starts the container in interactive mode   
    -t: Allocates a pseudo-TTY
    
 By default a container’s file system persists even after the container exits. To remove the container (this does not remove the image) you should run
@@ -63,16 +63,25 @@ By default a container’s file system persists even after the container exits. 
    $docker rm $(docker ps -a -q) # this removes all stopped containers
    ```
    
-Now let's run two Python versions in separate containers. You may use the following two commands in two separate terminals, or 
-run one container at a time, exit and start the next one
+Now let's run the latest Ubuntu in a container
 
    ```sh
-   $docker run -it --rm -v $PWD:/output --entrypoint /bin/bash python:2.7
-   $docker run -it --rm -v $PWD:/output --entrypoint /bin/bash python
+   $docker run -it --rm -v $PWD:/my-first-docker ubuntu /bin/bash 
    ```
    
-   Do the ubuntu one with dockerfile
-   docker run -it --rm -v $PWD ubuntu /bin/bash
+  --rm: Docker will automatically clean up the container and remove the file system when the container exits  
+  -v: this mounts a file or directory on the host machine into a container
+ 
+   
+   ```sh
+   $cat /etc/os-release
+   $whoami
+   $ls /my-first-docker
+   ```
+  You have an Ubuntu OS running inside a container! 
+   
+      $docker rm $(docker ps -a -q) # this removes all stopped containers
+
  
 <!---#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/>
 
