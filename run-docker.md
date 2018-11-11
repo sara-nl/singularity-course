@@ -83,17 +83,17 @@ Now let's run the latest Ubuntu in a container!
    $exit
    $ls
    ```
-   
-If you wish to remove all your containers (this does not remove the image) you can run the following command:
-
-    ```sh
-    $docker rm $(docker ps -a -q) # this removes all stopped containers
-    ```
-    
+  
 So you all have different machines with different OS and OS versions but one thing running in common - the latest Ubuntu!
 
+If you wish to remove all your containers/did not use the --rm flag you can run the following command:
 
-      $docker rm $(docker ps -a -q) # this removes all stopped containers
+   ```sh
+   $docker rm $(docker ps -a -q) # this removes all stopped containers
+   ```
+    
+
+
 
  
 <!---#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/>
