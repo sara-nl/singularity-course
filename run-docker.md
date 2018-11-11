@@ -43,12 +43,14 @@ Container: A container is a runtime instance of an image--what the image becomes
     docker container ls --all   # can you see your hello-world container?
     ```  
     
-###<a name="run-interactive"></a> 3. Run interactive containers
+### <a name="run-interactive"></a> 3. Run interactive containers
 
 * The following command downloads the bash:latest image and runs it
 
    ```sh
    docker run -it bash
+   docker run -it --rm -v $PWD ubuntu /bin/bash
+   
    ```
     
 <!---#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/>
