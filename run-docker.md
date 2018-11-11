@@ -76,7 +76,11 @@ Now let's run the latest Ubuntu in a container
    ```sh
    $cat /etc/os-release
    $whoami
-   $ls /my-first-docker
+   $cd /my-first-docker #Whatever hcanges you make in this directory will also be made on your host so be careful!
+   $echo "Hello World!" > hello-world.txt
+   $ls
+   $exit
+   $ls
    ```
   You have an Ubuntu OS running inside a container! 
    
