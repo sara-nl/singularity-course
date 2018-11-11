@@ -110,9 +110,9 @@ The contents of the Dockerfile should look like this:
    # Copy the Python script to the container
    ADD my-python2-script.py . 
    # Install any needed packages 
-   #RUN apt-get update && apt-get install -y vim
+   RUN apt-get update && apt-get install -y vim
    # Run my-python2-script.py when the container launches
-   #CMD ["python", "./my-python2-script.py"]
+   CMD ["python", "./my-python2-script.py"]
    ```
    While saving the Dockerfile, do not add any extension (.txt,.doc) to the file.  Now let's build an image from the   Dockerfile and run it
    
@@ -123,9 +123,7 @@ The contents of the Dockerfile should look like this:
    $docker run -it --rm python-for-cartesius /bin/bash # For an interactive session
    ```
 
-   $ docker run --rm python-for-cartesius 
-   docker run -it --rm python-for-cartesius
-   docker run -it --rm python-for-cartesius /bin/bash 
+
 
 
 <!---#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/>
