@@ -3,6 +3,7 @@
 1. [Start docker daemon](#start-docker)
 2. [Test Docker installation](#check-docker)
 3. [Run interactive containers](#run-interactive)
+4. [Create a Python container to be used to run on Cartesius](#create-container) 
 
 ### <a name="start-docker"></a> 1. Start docker daemon
 
@@ -32,7 +33,7 @@
     ```
 
 Image: An image  is an executable package that includes everything needed to run an application.    
-Container: A container is a runtime instance of an image--what the image becomes when executed. 
+Container: A container is a runtime instance of an image - what the image becomes when executed. 
 
 * This command downloads a test image and runs it in a container. 
 
@@ -63,7 +64,7 @@ By default a container’s file system persists even after the container exits. 
    $docker rm $(docker ps -a -q) # this removes all stopped containers
    ```
    
-Now let's run the latest Ubuntu in a container
+Now let's run the latest Ubuntu in a container!
 
    ```sh
    $docker run -it --rm -v $PWD:/my-first-docker ubuntu /bin/bash 
@@ -82,8 +83,16 @@ Now let's run the latest Ubuntu in a container
    $exit
    $ls
    ```
-  You have an Ubuntu OS running inside a container! 
    
+If you wish to remove all your containers (this does not remove the image) you can run the following command:
+
+    ```sh
+    $docker rm $(docker ps -a -q) # this removes all stopped containers
+    ```
+    
+So you all have different machines with different OS and OS versions but one thing running in common - the latest Ubuntu!
+
+
       $docker rm $(docker ps -a -q) # this removes all stopped containers
 
  
