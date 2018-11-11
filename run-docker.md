@@ -3,7 +3,7 @@
 1. [Start docker daemon](#start-docker)
 2. [Test Docker installation](#check-docker)
 3. [Run interactive containers](#run-interactive)
-4. [Create a Python container to be used to run on Cartesius](#create-container) 
+4. [Create a Python image to be used to run on Cartesius](#create-image) 
 
 ### <a name="start-docker"></a> 1. Start docker daemon
 
