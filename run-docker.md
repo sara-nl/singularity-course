@@ -109,9 +109,12 @@ The content of the Dockerfile should look like this:
    FROM python:2.7 
    # Copy the Python script to the container
    ADD my-python2-script.py . 
-   # Run app.py when the container launches
+   # Run my-python2-script.py when the container launches
    CMD ["python", "./my-python2-script.py"]
-    ```
+   ```
+    
+   $docker build -t python-for-cartesius .
+   $docker run --rm python-for-cartesius /bin/bash
 
 <!---#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/>
 
