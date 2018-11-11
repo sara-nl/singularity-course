@@ -9,11 +9,11 @@
 * Linux: Open a terminal in your laptop and run
 
     ```sh
-    sudo systemctl start docker
+    $sudo systemctl start docker
     ```
     if the above command fails run 
     ```sh
-    sudo service docker start
+    $sudo service docker start
     ```
 * Mac: Start the docker daemon via Launchpad.
 
@@ -25,10 +25,10 @@
 * Getting started: Run the following commands in a terminal 
 
     ```sh
-    docker --version
-    docker info
-    docker image ls
-    docker container ls --all
+    $docker --version
+    $docker info
+    $docker image ls
+    $docker container ls --all
     ```
 
 Image: An image  is an executable package that includes everything needed to run an application.    
@@ -38,30 +38,37 @@ Container: A container is a runtime instance of an image--what the image becomes
 
 
     ```sh
-    docker run hello-world
-    docker image ls  # can you see your hello-world image?
-    docker container ls --all   # can you see your hello-world container?
+    $docker run hello-world
+    $docker image ls  # can you see your hello-world image?
+    $docker container ls --all   # can you see your hello-world container?
     ```  
     
 ### <a name="run-interactive"></a> 3. Run interactive containers
 
-* The following command downloads the bash:latest image and runs it in the interactive mode
+* The following command downloads the latest bash image and runs it in the interactive mode
 
    ```sh
-   docker run -it bash
-   docker container ls -all
+   $docker run -it bash
+   $ls #run similar bash commands to see what the environment looks like
+   $exit
+   $docker container ls -all  # or docker ps -a
    ```
+   -i: This starts the container in interactive mode
+   -t: Allocates a pseudo-TTY
+   
 By default a container’s file system persists even after the container exits. To remove the container (this does not remove the image) you should run
 
    ```sh
-   docker rm bash
+   $docker rm container-name # replace with your container-name
+   $docker rm $(docker ps -a -q) # this removes all stopped containers
    ```
    
-Now let's run two Python versions in separate containers 
+Now let's run two Python versions in separate containers. You may use the following two commands in two separate terminals, or 
+run one container at a time, exit and start the next one
 
    ```sh
-   docker run -it --rm -v $PWD:/output --entrypoint /bin/bash python:2.7
-   docker run -it --rm -v $PWD:/output --entrypoint /bin/bash python
+   $docker run -it --rm -v $PWD:/output --entrypoint /bin/bash python:2.7
+   $docker run -it --rm -v $PWD:/output --entrypoint /bin/bash python
    ```
    
    Do the ubuntu one with dockerfile
