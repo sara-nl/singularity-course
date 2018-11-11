@@ -1,11 +1,13 @@
 # Running docker on your workstation
 
 1. [Start docker daemon](#start-docker)
-2. [Test Docker installation](#check-docker)
+2. [Check Docker installation](#check-docker)
 3. [Run interactive containers](#run-interactive)
 4. [Create a Python image to be used to run on Cartesius](#create-image) 
 
 ### <a name="start-docker"></a> 1. Start docker daemon
+
+Let us first start the docker daemon: 
 
 * Linux: Open a terminal in your laptop and run
 
@@ -92,9 +94,24 @@ If you wish to remove all your containers/did not use the --rm flag you can run 
    $docker rm $(docker ps -a -q) # this removes all stopped containers
    ```
     
+### <a name="create-image"></a> 4. Create Python images to be used to run on Cartesius
 
+In the section we will create a Python image
+   ```sh
+   $mkdir my-python2-container
+   $cd my-python2-container/
+   $vi (check which editor Carlos used) Dockerfile
+   ```
 
+The content of the Dockerfile should look like this:
+   ```sh
+   # Use an official Python runtime as a parent image
+   FROM python:2.7 
+   # Copy the Python script to the container
+   ADD my-python2-script.py . 
+   # Run app.py when the container launches
+   CMD ["python", "./my-python2-script.py"]
+    ```
 
- 
 <!---#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/>
 
