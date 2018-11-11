@@ -45,13 +45,27 @@ Container: A container is a runtime instance of an image--what the image becomes
     
 ### <a name="run-interactive"></a> 3. Run interactive containers
 
-* The following command downloads the bash:latest image and runs it
+* The following command downloads the bash:latest image and runs it in the interactive mode
 
    ```sh
    docker run -it bash
-   docker run -it --rm -v $PWD ubuntu /bin/bash
-   
+   docker container ls -all
    ```
-    
+By default a container’s file system persists even after the container exits. To remove the container (this does not remove the image) you should run
+
+   ```sh
+   docker rm bash
+   ```
+   
+Now let's run two Python versions in separate containers 
+
+   ```sh
+   docker run -it --rm -v $PWD:/output --entrypoint /bin/bash python:2.7
+   docker run -it --rm -v $PWD:/output --entrypoint /bin/bash python
+   ```
+   
+   Do the ubuntu one with dockerfile
+   docker run -it --rm -v $PWD ubuntu /bin/bash
+ 
 <!---#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/>
 
