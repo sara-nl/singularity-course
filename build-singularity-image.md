@@ -1,4 +1,9 @@
-# Running docker on your workstation
+# Building Singularity images
+
+singularity build python-2.7.simg docker://python:2.7.15-jessie
+
+
+
 
 1. [Save docker images](#save-docker)
 2. [Convert Docker images to Singularity](#check-docker)
