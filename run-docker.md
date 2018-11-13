@@ -12,11 +12,11 @@ Let us first start the docker daemon:
 * Linux: Open a terminal in your laptop and run
 
     ```sh
-    $sudo systemctl start docker
+    sudo systemctl start docker
     ```
     if the above command fails run 
     ```sh
-    $sudo service docker start
+    sudo service docker start
     ```
 * Mac: Start the docker daemon via Launchpad.
 
@@ -28,10 +28,10 @@ Let us first start the docker daemon:
 * Getting started: Run the following commands in a terminal 
 
     ```sh
-    $docker --version
-    $docker info
-    $docker image ls
-    $docker container ls --all
+    docker --version
+    docker info
+    docker image ls
+    docker container ls --all
     ```
 
 Image: An image  is an executable package that includes everything needed to run an application.    
@@ -41,9 +41,9 @@ Container: A container is a runtime instance of an image - what the image become
 
 
     ```sh
-    $docker run hello-world
-    $docker image ls  # can you see your hello-world image?
-    $docker container ls --all   # can you see your hello-world container?
+    docker run hello-world
+    docker image ls  # can you see your hello-world image?
+    docker container ls --all   # can you see your hello-world container?
     ```  
     
 ### <a name="run-interactive"></a> 3. Run interactive containers
@@ -51,10 +51,10 @@ Container: A container is a runtime instance of an image - what the image become
 * The following command downloads the latest bash image and runs it in the interactive mode
 
    ```sh
-   $docker run -it bash
-   $ls #run similar linux commands to see what the environment looks like
-   $exit
-   $docker container ls -all  # or docker ps -a
+   docker run -it bash
+   ls #run similar linux commands to see what the environment looks like
+   exit
+   docker container ls -all  # or docker ps -a
    ```
    -i: This starts the container in interactive mode   
    -t: Allocates a pseudo-TTY
@@ -62,14 +62,14 @@ Container: A container is a runtime instance of an image - what the image become
 By default a container’s file system persists even after the container exits. To remove the container (this does not remove the image) you should run
 
    ```sh
-   $docker rm container-name # replace with your container-name
-   $docker rm $(docker ps -a -q) # this removes all stopped containers
+   docker rm container-name # replace with your container-name
+   docker rm $(docker ps -a -q) # this removes all stopped containers
    ```
    
 Now let's run the latest Ubuntu in a container!
 
    ```sh
-   $docker run -it --rm -v $PWD:/my-first-docker ubuntu /bin/bash 
+   docker run -it --rm -v $PWD:/my-first-docker ubuntu /bin/bash 
    ```
    
   --rm: Docker will automatically clean up the container and remove the file system when the container exits  
@@ -77,13 +77,13 @@ Now let's run the latest Ubuntu in a container!
  
    
    ```sh
-   $cat /etc/os-release
-   $whoami
-   $cd /my-first-docker #Whatever changes you make in this directory will also be made on your host so be careful!
-   $echo "Hello World!" > hello-world.txt
-   $ls
-   $exit
-   $ls
+   cat /etc/os-release
+   whoami
+   cd /my-first-docker #Whatever changes you make in this directory will also be made on your host so be careful!
+   echo "Hello World!" > hello-world.txt
+   ls
+   exit
+   ls
    ```
   
 So despite having different machines with different OS and OS versions you had one thing running in common - the latest Ubuntu!
@@ -92,9 +92,9 @@ So despite having different machines with different OS and OS versions you had o
 
 Let's create a Python image using a Dockerfile
    ```sh
-   $mkdir my-python2-container
-   $cd my-python2-container/
-   $vi (check which editor Carlos used) Dockerfile
+   mkdir my-python2-container
+   cd my-python2-container/
+   vi (check which editor Carlos used) Dockerfile
    ```
    Dockerfile: A file that contains all the commands used to assemble an image. 
    
@@ -112,10 +112,10 @@ The contents of the Dockerfile should look like this:
    While saving the Dockerfile, do not add any extension (.txt,.doc) to the file. We will also run a simple Python script with this image. Make sure you have this script in your current working directory (Open the [script](https://github.com/maithili-k/singularity-course/blob/master/python2.py) and copy its contents using your favourite editor and save the file). Now let's build an image from the Dockerfile and run it
    
    ```sh
-   $docker build -t python2-docker .
-   $docker images # You should see the image we just created
-   $docker run --rm python2-docker 
-   $docker run -it --rm python2-docker /bin/bash # For an interactive session
+   docker build -t python2-docker .
+   docker images # You should see the image we just created
+   docker run --rm python2-docker 
+   docker run -it --rm python2-docker /bin/bash # For an interactive session
    ```
 
 
