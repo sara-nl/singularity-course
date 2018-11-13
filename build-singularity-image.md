@@ -79,16 +79,16 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
  
 ### <a name="convert-docker"></a> 3. Convert Docker images to Singularity
 
-To convert a local Docker image run the folowing command 
+You may run these commands even if you do not have Singularity installed on your laptop. The Singularity documentation provides some standard methods to convert docker images to Singularity format. You can also first push your docker images to a docker registry and pull it with Singularity. We demonstrate here yet another method if these natively do not fit your needs. To convert a local Docker image run the folowing command: 
    ```sh
-   sudo docker run -v /var/run/docker.sock:/var/run/docker.sock --privileged -t --rm singularityware/docker2singularity    python2-for-cartesius
+   sudo docker run -v /var/run/docker.sock:/var/run/docker.sock --privileged -t --rm singularityware/docker2singularity --name python2-docker python2-docker
    ls
    ```
    
-If you have singularity installed, you can test if your image works
+If you have singularity installed, you can test if your image works 
 
    ```sh
-   singularity shell python2-for-cartesius-2018-11-05-51908ebcb7a7.simg
+   singularity shell python2-docker.simg
    ls
    pwd
    ls /
