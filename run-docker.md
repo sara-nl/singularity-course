@@ -116,6 +116,8 @@ The contents of the Dockerfile should look like this:
    docker images # You should see the image we just created
    docker run --rm python2-docker 
    docker run -it --rm python2-docker /bin/bash # For an interactive session
+   python python2.py # you can run the python script that now resides in your container
+   exit
    ```
 
 
