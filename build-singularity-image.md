@@ -10,10 +10,14 @@
 You will need Singularity installed on your laptop to proceed. If you did not manage to install it, the below steps will be shown in the demo.
 
    ```sh
+   singularity -h # displays usage options
    singularity pull shub://GodloveD/lolcow  # you may also use docker hub - singularity pull docker://godlovedc/lolcow
    ls
    singularity inspect GodloveD-lolcow-master-latest.simg
    ```
+   pull: Pull an image from e.g., Docker or Singularity Hub  
+   inspect: Display a container's metadata
+   
  Now let's run the image:
     
    ```sh
