@@ -97,6 +97,7 @@ If you have singularity installed, you can test if your image works
 We can copy all our sinularity images to Cartesius. As this may take long or you don't have singularity installed on your workstation there are some ready to use Singularity images for you on Cartesius so you can also skip this step.
 
    ```sh
+   du -sh *simg  #make sure it is not too big
    scp *simg username@cartesius.surfsara.nl:/home/$USER
    ```
 
