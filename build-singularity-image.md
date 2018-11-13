@@ -61,7 +61,7 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
       exec echo "I am running your Singulariy container!"
       
    ```
-   We are downloading the latest python version from docker://index.docker.io/library/ubuntu:latest. The Bootstrap and From keywords are mandatory. With this recipe let's build the image and run the container:
+   We are downloading the latest python version from docker://index.docker.io/library/python:latest. The `Bootstrap` and `From` keywords are mandatory. We will also run a simple Python script with this image. Make sure you have this script in your current working directory (Open the [script](https://github.com/maithili-k/singularity-course/blob/master/python3.py) and copy its contents using your favourite editor and save the file) With this recipe let's build the image and run the container:
 
    ```sh
    sudo singularity build python3.simg python3-recipe
@@ -70,7 +70,7 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
    singularity exec python3.simg python python3.py #This may fail 
    ```
    
-   By default singularity bind mounts /home/$USER, /tmp, and $PWD into your container at runtime. to bind more mounts more do the following:
+   By default singularity bind mounts /home/$USER, /tmp, and $PWD (does not always seem to be the case?) into your container at runtime. To bind more mounts more do the following:
    
    ```sh
    singularity exec --bind $PWD:/data python3.simg python /data/python3.py
