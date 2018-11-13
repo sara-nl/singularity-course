@@ -40,6 +40,6 @@ Program:
 
 10.20 - 10.30  - Break
 
-10.30 - 11:00  -  Demo followed by Hands on: Build singularity containers 
+10.30 - 11:00  -  Demo followed by Hands on: Build singularity images 
 
 11:00 - 12:30  -  Hands on: Running Singularity containers on a Supercomputer
