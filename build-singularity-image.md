@@ -81,7 +81,7 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
 
 You may run these commands even if you do not have Singularity installed on your laptop. The Singularity documentation provides some standard methods to convert docker images to Singularity format. You can also first push your docker images to a docker registry and pull it with Singularity. We demonstrate here yet another method if these natively do not fit your needs. To convert a local Docker image run the folowing command: 
    ```sh
-   sudo docker run -v /var/run/docker.sock:/var/run/docker.sock -v /tmp:$PWD --privileged -t --rm singularityware/docker2singularity --name python2-docker python2-docker
+   sudo docker run -v /var/run/docker.sock:/var/run/docker.sock -v $PWD:/output --privileged -t --rm singularityware/docker2singularity --name python2-docker python2-docker
    ls
    ```
    
