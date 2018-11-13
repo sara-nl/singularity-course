@@ -54,7 +54,14 @@ With this recipe let's build the image
    ```sh
    sudo singularity build python3.simg python3-recipe
    singularity exec python3.simg python
-   singularity exec python3.simg python python3.py
+   singularity exec python3.simg python python3.py #This may fail 
+   ```
+   
+   By default singularity bind mounts /home/$USER, /tmp, and $PWD into your container at runtime. to bind more mounts more do the following:
+   
+   ```sh
+   singularity exec --bind $PWD:/data python3.simg python /data/python3.py
+   singularity exec --bind $PWD:/data python3.simg python /data/python-example.py
    ``` 
  
 ### <a name="convert-docker"></a> 3. Convert Docker images to Singularity
