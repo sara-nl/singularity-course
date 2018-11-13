@@ -7,7 +7,7 @@
    
 ### <a name="pull-singularity"></a> 1. Pull and run Singularity images
  
-You will need Singularity installed on your workstation to proceed. If you did not manage to perform this, the below steps  will be shown in the demo.
+You will need Singularity installed on your laptop to proceed. If you did not manage to install it, the below steps will be shown in the demo.
 
    ```sh
    singularity pull shub://GodloveD/lolcow  # you may also use docker hub - singularity pull docker://godlovedc/lolcow
