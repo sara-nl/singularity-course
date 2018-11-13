@@ -2,23 +2,13 @@
 
 singularity build python-2.7.simg docker://python:2.7.15-jessie
 
+1. [Convert Docker images to Singularity](#convert-docker)
 
+### <a name="convert-docker"></a> 1. Convert Docker images to Singularity
 
-
-1. [Save docker images](#save-docker)
-2. [Convert Docker images to Singularity](#check-docker)
-
-### <a name="save-docker"></a> 1. Save docker images
-
-   ```sh
-   docker images #Check the IMAGE ID of your image
-   docker save 0ff753f19523 > python2-for-cartesius.tar #Replace 0ff753f19523 with your Image ID
-   ```
-   
  Save Docker images from containers
  
    ```sh
-   docker ps #Check the Container ID of your image
-   docker export pedantic_payne -o python2-container-for-cartesius.tar #Replace pedantic_payne with your Container Name/ID
+   sudo docker run -v /var/run/docker.sock:/var/run/docker.sock --privileged -t --rm singularityware/docker2singularity    python2-for-cartesius
    ```
    
