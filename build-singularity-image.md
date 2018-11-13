@@ -1,10 +1,40 @@
 # Building Singularity images
 
-1. [Convert Docker images to Singularity](#convert-docker)
-2. [Pull Singularity images](#pull-singularity)
-3. [Build Singularity images from a recipe](#build-singularity)
+1. [Pull Singularity images](#pull-singularity)
+2. [Build Singularity images from a recipe](#build-singularity)
+3. [Convert Docker images to Singularity](#convert-docker)
 
-### <a name="convert-docker"></a> 1. Convert Docker images to Singularity
+   
+### <a name="pull-singularity"></a> 1. Pull and run Singularity images
+ 
+You will need Singularity installed on your workstation to proceed. If you did not manage to perform this, the below steps  will be shown in the demo.
+
+   ```sh
+   singularity pull shub://GodloveD/lolcow  # you may also use docker hub - singularity pull docker://godlovedc/lolcow
+   ls
+   singularity inspect GodloveD-lolcow-master-latest.simg
+   ./GodloveD-lolcow-master-latest.simg 
+    ________________________________________
+   / Let me put it this way: today is going \
+   \ to be a learning experience.           /
+    ----------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+   ```
+
+### <a name="build-singularity"></a> 2. Build Singularity images from a recipe
+
+You will need Singularity installed on your workstation to proceed. If you did not manage to perform this, the below steps  will be shown in the demo.
+
+ 
+ singularity build python-2.7.simg docker://python:2.7.15-jessie
+ 
+ 
+### <a name="convert-docker"></a> 3. Convert Docker images to Singularity
 
 To convert a local Docker image run the folowing command 
    ```sh
@@ -22,33 +52,5 @@ If you have singularity installed, you can test if your image works
    python --version
    which python
    ```
-   
-### <a name="pull-singularity"></a> 2. Pull and run Singularity images
- 
-You will need Singularity installed on your workstation to proceed. If you did not manage to perform this, the below steps  will be shown in the demo.
 
-   ```sh
-   singularity pull shub://GodloveD/lolcow  # you may also use docker hub - singularity pull docker://godlovedc/lolcow
-
-   ls
-   singularity inspect GodloveD-lolcow-master-latest.simg
-   ./GodloveD-lolcow-master-latest.simg 
-    ________________________________________
-   / Let me put it this way: today is going \
-   \ to be a learning experience.           /
-    ----------------------------------------
-        \   ^__^
-         \  (oo)\_______
-            (__)\       )\/\
-                ||----w |
-                ||     ||
-
-    ```
-
-### <a name="build-singularity"></a> 3. Build Singularity images from a recipe
-
-You will need Singularity installed on your workstation to proceed. If you did not manage to perform this, the below steps  will be shown in the demo.
-
- 
- singularity build python-2.7.simg docker://python:2.7.15-jessie
-
+**Note: If you want to build Singularity images without having singularity installed in a build environment, you can build images using Singularity Hub instead - https://github.com/singularityhub/singularityhub.github.io/wiki
