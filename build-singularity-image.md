@@ -45,10 +45,9 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
 
 ### <a name="build-singularity"></a> 2. Build Singularity images from a recipe
 
-You will need Singularity installed on your workstation to proceed. If you did not manage to perform this, the below steps  will be shown in the demo.
+You will need Singularity installed on your laptop to proceed. If you did not manage to install it, the below steps  will be shown in the demo. Create a file python3-recipe with your favourite text editor. The contents of the file should look like as below:
 
    ```sh
-   cat python3-recipe
    Bootstrap: docker
 
    From: python:latest
@@ -62,7 +61,7 @@ You will need Singularity installed on your workstation to proceed. If you did n
       exec echo "I am running your Singulariy container!"
       
    ```
-With this recipe let's build the image
+   We are downloading the latest python version from docker://index.docker.io/library/ubuntu:latest. The Bootstrap and From keywords are mandatory. With this recipe let's build the image and run the container:
 
    ```sh
    sudo singularity build python3.simg python3-recipe
