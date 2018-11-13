@@ -42,4 +42,4 @@ Program:
 
 10.30 - 11:00  -  Demo followed by Hands on: [Build](https://github.com/maithili-k/singularity-course/blob/master/build-singularity-image.md) singularity images 
 
-11:00 - 12:30  -  Hands on: Running Singularity containers on a Supercomputer
+11:00 - 12:30  -  Hands on: Running Singularity containers on a [Supercomputer](https://github.com/maithili-k/singularity-course/blob/master/run-singularity-cartesius.md)
