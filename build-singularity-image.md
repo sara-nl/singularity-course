@@ -34,9 +34,28 @@ You will need Singularity installed on your workstation to proceed. If you did n
 
 You will need Singularity installed on your workstation to proceed. If you did not manage to perform this, the below steps  will be shown in the demo.
 
- 
- singularity build python-2.7.simg docker://python:2.7.15-jessie
- 
+   ```sh
+   cat python3-recipe
+   Bootstrap: docker
+
+   From: python:latest
+
+   Registry: index.docker.io
+
+   Namespace: library
+
+   %runscript
+
+      exec echo "I am running your Singulariy container!"
+      
+   ```
+With this recipe let's build the image
+
+   ```sh
+   sudo singularity build python3.simg python3-recipe
+   singularity exec python3.simg python
+   singularity exec python3.simg python python3.py
+   ``` 
  
 ### <a name="convert-docker"></a> 3. Convert Docker images to Singularity
 
