@@ -28,6 +28,15 @@ You will need Singularity installed on your workstation to proceed. If you did n
                 ||----w |
                 ||     ||
 
+    ./GodloveD-lolcow-master-latest.simg 
+    ________________________________________
+    < Your present plans will be successful. >
+    ----------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
    ```
 
 ### <a name="build-singularity"></a> 2. Build Singularity images from a recipe
