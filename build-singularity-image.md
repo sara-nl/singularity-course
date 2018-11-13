@@ -16,7 +16,7 @@ You will need Singularity installed on your workstation to proceed. If you did n
    ```
  Now let's run the image:
     
-    ```sh
+   ```sh
    ./GodloveD-lolcow-master-latest.simg 
     ________________________________________
    / Let me put it this way: today is going \
