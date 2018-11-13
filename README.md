@@ -34,7 +34,7 @@ Program:
 --------
 9.00 - 9.20  -  Presentation: Introduction to containers
 
-9.20 - 10.00   -  Hands on: Interacting with Docker containers on your laptop
+9.20 - 10.00   -  Hands on: Interacting with [Docker](https://github.com/maithili-k/singularity-course/blob/master/run-docker.md) containers on your laptop
 
 10:00 - 10.20  -  Hands on: Singularity installation on your laptop
 
