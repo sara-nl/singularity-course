@@ -13,6 +13,10 @@ You will need Singularity installed on your workstation to proceed. If you did n
    singularity pull shub://GodloveD/lolcow  # you may also use docker hub - singularity pull docker://godlovedc/lolcow
    ls
    singularity inspect GodloveD-lolcow-master-latest.simg
+   ```
+ Now let's run the image:
+    
+    ```sh
    ./GodloveD-lolcow-master-latest.simg 
     ________________________________________
    / Let me put it this way: today is going \
