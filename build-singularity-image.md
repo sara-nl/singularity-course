@@ -66,6 +66,7 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
    ```sh
    sudo singularity build python3.simg python3-recipe
    singularity exec python3.simg python
+   exit()
    singularity exec python3.simg python python3.py #This may fail 
    ```
    
