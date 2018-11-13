@@ -1,9 +1,9 @@
 # Building Singularity images
 
-1. [Pull Singularity images](#pull-singularity)
+1. [Pull and run Singularity images](#pull-singularity)
 2. [Build Singularity images from a recipe](#build-singularity)
 3. [Convert Docker images to Singularity](#convert-docker)
-
+4. [Copy Singularity images to Cartesius](#copy-sing-cart)
    
 ### <a name="pull-singularity"></a> 1. Pull and run Singularity images
  
@@ -81,6 +81,14 @@ If you have singularity installed, you can test if your image works
    ls /
    python --version
    which python
+   ```
+   
+### <a name="copy-sing-cart"></a> 4. Copy Singularity images to Cartesius
+
+We can copy all our sinularity images to Cartesius. As this may take long or you don't have singularity installed on your workstation there are some ready to use Singularity images for you on Cartesius so you can also skip this step.
+
+   ```sh
+   scp *simg username@cartesius.surfsara.nl:/home/$USER
    ```
 
 **Note: If you want to build Singularity images without having singularity installed in a build environment, you can build images using Singularity Hub instead - https://github.com/singularityhub/singularityhub.github.io/wiki
