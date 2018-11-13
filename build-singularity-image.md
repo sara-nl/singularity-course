@@ -26,7 +26,21 @@ If you have singularity installed, you can test if your image works
 ### <a name="pull-singularity"></a> 2. Pull Singularity images
  
 You will need Singularity installed on your workstation to proceed. If you did not manage to perform this, the below steps  will be shown in the demo.
- 
+
+   ```sh
+   ./GodloveD-lolcow-master-latest.simg 
+    ________________________________________
+   / Let me put it this way: today is going \
+   \ to be a learning experience.           /
+    ----------------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
+
+    ```
+
 ### <a name="build-singularity"></a> 3. Build Singularity images from a recipe
 
 You will need Singularity installed on your workstation to proceed. If you did not manage to perform this, the below steps  will be shown in the demo.
