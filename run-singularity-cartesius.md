@@ -10,7 +10,7 @@ Here are your first steps:
 ### <a name="cartesius-login"></a> 1. Login to Cartesius
 
 * The login credentials will be provided to you at the start of the session.
-* Open a terminal in your laptop
+* Open a terminal in your laptop 
     
  ```sh
  ssh username@cartesius.surfsara.nl #replace `username` with the username assigned to you
