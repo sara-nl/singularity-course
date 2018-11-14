@@ -26,9 +26,9 @@ ls -l
 singularity --version # what output do you see?
 ```
 
-### <a name="job-submit"></a> 3. Submit a job
+### <a name="job-submit"></a> 3. Submit jobs on Cartesius
 
-* Submit a simple  job
+* Submit a simple job
   The script jobsubmit-lolcow.sh is present in your home directory that has the following contents:
   
   ```sh
@@ -42,8 +42,8 @@ singularity --version # what output do you see?
   echo "I am here -" $PWD "running on " $HOSTNAME
   ./GodloveD-lolcow-master-latest.simg
   ```
-  -n: number of tasks
-  -t: total run time of the job allocation
+  -n: number of tasks  
+  -t: max total run time of the job allocation
   
   Now that you have inspected the script that will submit your job, let's submit a job by running the following:
   
@@ -55,7 +55,21 @@ singularity --version # what output do you see?
   ```
   So you ran a Singularity container that is in your home directory (on the login node) on a worker node where Singularity is actually installed.
 
+* Submit a job that runs a Python script
 
+ Now inspect the jobsubmit-python2.sh script
+ ```sh
+  cat jobsubmit-python2.sh
+  
+  #!/bin/bash
+  #SBATCH -n 1
+  #SBATCH -t 10:00
+  echo "Hello I am running a singularity job with the following singularity version"
+  singularity --version
+  echo "I am here -" $PWD "running on " $HOSTNAME
+  singularity exec python2-docker.simg python python2.py
+  ```
+ 
 2. submit job with python script in home
 3. using tmpdir -- discuss bind/mount option in more detail
 4. discuss different container formats
