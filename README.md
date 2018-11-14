@@ -36,7 +36,7 @@ Program:
 
 9.20 - 10.00   -  Hands on: Interacting with [Docker](https://github.com/maithili-k/singularity-course/blob/master/run-docker.md) containers on your laptop
 
-10:00 - 10.20  -  Hands on: Singularity installation on your laptop
+10:00 - 10.20  -  Hands on: Singularity [installation](https://github.com/maithili-k/singularity-course/blob/master/singularity_install.md) containers on your laptop on your laptop
 
 10.20 - 10.30  - Break
 
