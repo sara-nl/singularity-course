@@ -16,18 +16,46 @@ Here are your first steps:
  ssh username@cartesius.surfsara.nl #replace `username` with the username assigned to you
  ```
   
-#### Get familiar with the UI 
+#### Get familiar with the login node
 
 * Find your home directory and its content:
 
 ```sh
 pwd
 ls -l
+singularity --version # what output do you see?
 ```
 
 ### <a name="job-submit"></a> 3. Submit a job
 
-1. simple cow job
+* Submit a simple  job
+  The script jobsubmit-lolcow.sh is present in your home directory that has the following contents:
+  
+  ```sh
+  cat jobsubmit-lolcow.sh
+  
+  #!/bin/bash
+  #SBATCH -n 1
+  #SBATCH -t 10:00
+  echo "Hello I am running a singularity job with the following singularity version"
+  singularity --version
+  echo "I am here -" $PWD "running on " $HOSTNAME
+  ./GodloveD-lolcow-master-latest.simg
+  ```
+  -n: number of tasks
+  -t: total run time of the job allocation
+  
+  Now that you have inspected the script that will submit your job, let's submit a job by running the following:
+  
+  ```sh
+  sbatch jobsubmit-lolcow.sh  #This command will submit a job and give you a job ID in return
+  squeue -u $USER  #Check the status of your job
+  ls  #Check if the output is present in your directory
+  cat slurm-yourjobid.out
+  ```
+  So you ran a Singularity container that is in your home directory (on the login node) on a worker node where Singularity is actually installed.
+
+
 2. submit job with python script in home
 3. using tmpdir -- discuss bind/mount option in more detail
 4. discuss different container formats
