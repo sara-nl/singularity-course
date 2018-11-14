@@ -27,7 +27,12 @@ ls -l
 
 ### <a name="job-submit"></a> 3. Submit a job
 
-Submit jobs on ccartesius with singularity and inspect the output, some trouble shooting of python 2 vs python 3 examples
+1. simple cow job
+2. submit job with python script in home
+3. using tmpdir -- discuss bind/mount option in more detail
+4. discuss different container formats
+5. recap of what we did and close
+
 
 
 
