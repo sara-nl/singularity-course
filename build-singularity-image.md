@@ -61,7 +61,9 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
       exec echo "I am running your Singulariy container!"
       
    ```
-   We are downloading the latest python version from docker://index.docker.io/library/python:latest. The `Bootstrap` and `From` keywords are mandatory. We will also run a simple Python script with this image. Make sure you have this script in your current working directory (Open the [script](https://github.com/maithili-k/singularity-course/blob/master/python3.py) and copy its contents using your favourite editor and save the file) With this recipe let's build the image and run the container:
+   We are downloading the latest python version from docker://index.docker.io/library/python:latest. The `Bootstrap` and `From` keywords are mandatory. 
+   
+We will run a simple Python script with this image. Make sure you have this script in your current working directory (Open the [script](https://github.com/maithili-k/singularity-course/blob/master/python3.py) and copy its contents using your favourite editor and save the file) With this recipe let's build the image and run the container:
 
    ```sh
    sudo singularity build python3.simg python3-recipe
@@ -70,13 +72,14 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
    singularity exec python3.simg python python3.py #This may fail 
    ```
    
-   By default singularity bind mounts /home/$USER, /tmp, and $PWD (does not always seem to be the case?) into your container at runtime. To bind more mounts more do the following:
+   By default singularity bind mounts /home/$USER, /tmp, and $PWD into your container at runtime. To bind more mounts more do the following:
    
    ```sh
-   singularity exec --bind $PWD:/data python3.simg python /data/python3.py
+   singularity exec --pwd $PWD python3.simg python python3.py   #This may also fail
    singularity exec --bind $PWD:/data python3.simg python /data/python-example.py
    ``` 
- 
+   By default, Singularity makes the current working directory in the container the same as on the host. For resolving the current working directory, Singularity looks up the physical absolute path and may not get resolved properly for external mounts or symbolic links. 
+
 ### <a name="convert-docker"></a> 3. Convert Docker images to Singularity
 
 You may run these commands even if you do not have Singularity installed on your laptop. The Singularity documentation provides some standard methods to convert docker images to Singularity format. You can also first push your docker images to a docker registry and pull it with Singularity. We demonstrate here yet another method if these natively do not fit your needs. To convert a local Docker image run the folowing command: 
