@@ -26,7 +26,7 @@ ls -l
 singularity --version # what output do you see?
 ```
 
-### <a name="job-submit"></a> 3. Submit jobs on Cartesius
+### <a name="job-submit"></a> 3. Submit jobs on Cartesius using Singularity images
 
 * Submit a simple job
   The script jobsubmit-lolcow.sh is present in your home directory that has the following contents:
@@ -39,7 +39,7 @@ singularity --version # what output do you see?
   #SBATCH -t 10:00
   echo "Hello I am running a singularity job with the following singularity version"
   singularity --version
-  echo "I am here -" $PWD "running on " $HOSTNAME
+  echo "I am running on " $HOSTNAME
   ./GodloveD-lolcow-master-latest.simg
   ```
   -n: number of tasks  
@@ -57,7 +57,7 @@ singularity --version # what output do you see?
 
 * Submit a job that runs a Python script
 
- Now inspect the jobsubmit-python2.sh script
+ Now inspect the jobsubmit-python2.sh script. The Python scrips is located in your $HOME directory.
  ```sh
   cat jobsubmit-python2.sh
   
@@ -66,12 +66,45 @@ singularity --version # what output do you see?
   #SBATCH -t 10:00
   echo "Hello I am running a singularity job with the following singularity version"
   singularity --version
-  echo "I am here -" $PWD "running on " $HOSTNAME
+  echo "I am running on " $HOSTNAME
   singularity exec python2-docker.simg python python2.py
   ```
+  Now submit the job and inspect its output:
+  
+  ```sh
+  sbatch jobsubmit-python2.sh  #This command will submit a job and give you a job ID in return
+  squeue -u $USER  #Check the status of your job
+  ls  #Check if the output is present in your directory
+  cat slurm-yourjobid.out
+  ```
+* Submit a job using $TMPDIR (for better performance)
+
+ Now inspect the jobsubmit-python2-tmpdir.sh script
  
-2. submit job with python script in home
-3. using tmpdir -- discuss bind/mount option in more detail
+ ```sh
+  cat jobsubmit-python2-tmpdir.sh
+  #!/bin/bash
+  #SBATCH -n 1
+  #SBATCH -t 10:00
+  echo "Hello I am running a singularity job with the following singularity version"
+  singularity --version
+  echo "I am running on " $HOSTNAME
+  cp $HOME/python2.py $HOME/python2-docker.simg $TMPDIR
+  cd $TMPDIR
+  I am now present in the directory " $PWD
+  singularity exec python2-docker.simg python python2.py
+  ```
+  If you wish to have better performance, it is better to use the local scratch space on the worker node. This can be achieved by using the prederfined $TMPDIR variable as described above. Now submit a job and inspect the output:
+  
+   ```sh
+  sbatch jobsubmit-python2-tmpdir.sh  #This command will submit a job and give you a job ID in return
+  squeue -u $USER  #Check the status of your job
+  ls  #Check if the output is present in your directory
+  cat slurm-yourjobid.out
+  ```
+  
+* Submit a job using the --bind option
+using tmpdir -- discuss bind/mount option in more detail
 4. discuss different container formats
 5. recap of what we did and close
 
