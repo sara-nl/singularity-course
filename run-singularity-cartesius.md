@@ -3,8 +3,8 @@
 Here are your first steps:
 
 1. [Login to Cartesius](#cartesius-login)
-2. [Environment set up](#cartesius-env)
-3. [Submit a job](#job-submit)
+2. [Get familiar with the login node](#cartesius-env)
+3. [Submit jobs](#job-submit)
 4. [Word on Docker vs Singularity + some stuff about singularity not covered](#wrap-up)
 
 ### <a name="cartesius-login"></a> 1. Login to Cartesius
@@ -16,7 +16,7 @@ Here are your first steps:
  ssh username@cartesius.surfsara.nl #replace `username` with the username assigned to you
  ```
   
-#### Get familiar with the login node
+### <a name="cartesius-env"></a> 2. Get familiar with the login node
 
 * Find your home directory and its content:
 
@@ -28,7 +28,7 @@ singularity --version # what output do you see?
 
 ### <a name="job-submit"></a> 3. Submit jobs on Cartesius using Singularity images
 
-* Submit a simple job
+* Submit a simple job 
   The script jobsubmit-lolcow.sh is present in your home directory that has the following contents:
   
   ```sh
@@ -50,14 +50,14 @@ singularity --version # what output do you see?
   ```sh
   sbatch jobsubmit-lolcow.sh  #This command will submit a job and give you a job ID in return
   squeue -u $USER  #Check the status of your job
-  ls  #Check if the output is present in your directory
+  ls  #Check if the output,slurm-jobID.out, is present
   cat slurm-yourjobid.out
   ```
   So you ran a Singularity container that is in your home directory (on the login node) on a worker node where Singularity is actually installed.
 
 * Submit a job that runs a Python script
 
- Now inspect the jobsubmit-python2.sh script. The Python scrips is located in your $HOME directory.
+ Now inspect the jobsubmit-python2.sh script. The Python scrips is located in your $HOME directory. 
  ```sh
   cat jobsubmit-python2.sh
   
@@ -74,12 +74,12 @@ singularity --version # what output do you see?
   ```sh
   sbatch jobsubmit-python2.sh  #This command will submit a job and give you a job ID in return
   squeue -u $USER  #Check the status of your job
-  ls  #Check if the output is present in your directory
+  ls  #Check if the output,slurm-jobID.out, is present
   cat slurm-yourjobid.out
   ```
-* Submit a job using $TMPDIR (for better performance)
+* Submit a job using $TMPDIR (for better performance than $HOME)
 
- Now inspect the jobsubmit-python2-tmpdir.sh script
+  If you wish to have better performance, it is better to use the local /scratch space on the worker node. This can be achieved  by using the prederfined $TMPDIR variable as described below. Inspect the jobsubmit-python2-tmpdir.sh script to see the set up:
  
  ```sh
   cat jobsubmit-python2-tmpdir.sh
@@ -94,7 +94,7 @@ singularity --version # what output do you see?
   I am now present in the directory " $PWD
   singularity exec python2-docker.simg python python2.py
   ```
-  If you wish to have better performance, it is better to use the local scratch space on the worker node. This can be achieved by using the prederfined $TMPDIR variable as described above. Now submit a job and inspect the output:
+  Now submit a job and inspect the output:
   
    ```sh
   sbatch jobsubmit-python2-tmpdir.sh  #This command will submit a job and give you a job ID in return
