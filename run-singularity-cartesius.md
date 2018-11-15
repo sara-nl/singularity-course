@@ -105,6 +105,10 @@ singularity --version # what output do you see?
   
 * Submit a job using the --bind option
 
+
+mkdir /scratch-shared/$USER/
+cp py*simg /scratch-shared/$USER
+
 singularity exec --pwd $PWD python3.simg python python3.py   #This may also fail
 singularity exec --bind $PWD:/data python3.simg python /data/python-example.py
 using tmpdir -- discuss bind/mount option in more detail
