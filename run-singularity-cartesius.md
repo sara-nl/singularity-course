@@ -18,11 +18,12 @@ Here are your first steps:
   
 ### <a name="cartesius-env"></a> 2. Get familiar with the login node
 
-* Find your home directory and its content:
+* Familiarize yourself with your environment :
 
 ```sh
 pwd
 ls -l
+python --version
 singularity --version # what output do you see?
 ```
 
@@ -43,7 +44,7 @@ singularity --version # what output do you see?
   ./GodloveD-lolcow-master-latest.simg
   ```
   -n: number of tasks  
-  -t: max total run time of the job allocation
+  -t: max total run time of the job, here it is 10 minutes
   
   Now that you have inspected the script that will submit your job, let's submit a job by running the following:
   
@@ -83,6 +84,7 @@ singularity --version # what output do you see?
  
  ```sh
   cat jobsubmit-python2-tmpdir.sh
+  
   #!/bin/bash
   #SBATCH -n 1
   #SBATCH -t 10:00
@@ -91,7 +93,7 @@ singularity --version # what output do you see?
   echo "I am running on " $HOSTNAME
   cp $HOME/python2.py $HOME/python2-docker.simg $TMPDIR
   cd $TMPDIR
-  I am now present in the directory " $PWD
+  echo "I am now present in the directory " $PWD
   singularity exec python2-docker.simg python python2.py
   ```
   Now submit a job and inspect the output:
@@ -104,14 +106,59 @@ singularity --version # what output do you see?
   ```
   
 * Submit a job using the --bind option
+  Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? Is there a better way? You can use a /scratch space that is shared by the worker nodes. It can be a temporary placeholder when you run your jobs.
 
+  ```sh
+  mkdir /scratch-shared/$USER/
+  cp python* /scratch-shared/$USER  
+  ```
+  In addition we will use both the containers with differing versions of Python.
+  
+  ```sh
+  cat jobsubmit-python2-bind.sh
+  
+  #!/bin/bash
+  #SBATCH -n 1
+  #SBATCH -t 10:00
+  echo "Hello I am running a singularity job with the following singularity version"
+  singularity --version
+  echo "I am running on " $HOSTNAME
+  echo "I am now present in the directory " $PWD
+  singularity exec python2-docker.simg python python2.py
+  singularity exec python3.simg python python3.py
+  ```
+  Check the output of your job. What do you see and why?
+  
+  If you recall the steps we performed in the previous section of building images there is the answer. Edit the above script for the Singularity commands to look as follows:
 
-mkdir /scratch-shared/$USER/
-cp py*simg /scratch-shared/$USER
+  ```sh
+  ls /scratch-shared/$USER/
+  echo "By specifying the path to the files"
+  singularity exec /scratch-shared/$USER/python2-docker.simg python /scratch-shared/$USER/python2.py   
+  singularity exec /scratch-shared/$USER/python3.simg python /scratch-shared/$USER/python3.py   
+  echo "By using the pwd flag"
+  singularity exec --pwd  /scratch-shared/$USER python3.simg python python3.py  
+  singularity exec --pwd  /scratch-shared/$USER python3.simg python python3.py  
 
-singularity exec --pwd $PWD python3.simg python python3.py   #This may also fail
-singularity exec --bind $PWD:/data python3.simg python /data/python-example.py
-using tmpdir -- discuss bind/mount option in more detail
+  ```
+  Depending on how the /scratch space is mounted the above may or may not work on other systems. In this case you can use one of the following comamnds:
+  
+  ```sh
+  singularity exec --pwd $PWD python3.simg python python3.py   #This may also fail
+  singularity exec --bind $PWD:/data python3.simg python /data/python-example.py
+  ```
+
+singularity exec --exec --pwd /scratch-shared/$USER python3.simg python python3.py
+singularity exec --bind /scratch-shared/$USER:/data python3.simg python /data/python3.py
+  ```
+  
+  
+  
+  ```
+  
+  singularity exec --pwd $PWD python3.simg python python3.py   #This may also fail
+  singularity exec --bind $PWD:/data python3.simg python /data/python-example.py
+  using tmpdir -- discuss bind/mount option in more detail
 
 4. discuss different container formats
 5. recap of what we did and close
