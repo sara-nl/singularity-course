@@ -117,7 +117,8 @@ Now lets say you need to submit tens of hundreds of jobs. Can you afford an over
  mkdir /scratch-shared/$USER/
  cp python* /scratch-shared/$USER  
  ```
-  
+Inspect the script jobsubmit-python2-bind.sh
+
  ```sh
  cat jobsubmit-python2-bind.sh
   
@@ -129,31 +130,29 @@ Now lets say you need to submit tens of hundreds of jobs. Can you afford an over
  echo "I am running on " $HOSTNAME
  echo "I am now present in the directory " $PWD
  singularity exec python2-docker.simg python python2.py
- singularity exec python3.simg python python3.py
  ```
 
 Check the output of your job. What do you see and why?
   
-If you recall the steps we performed in the previous section of building images there is the answer. Depending on how the /scratch space is mounted the above may or may not work on other systems. Edit the above script for the Singularity commands to look as follows:
+If you recall the steps we performed in the previous section of building images there is the answer. Depending on how the /scratch space is mounted the above may or may not work on other systems. Edit the above script to add the Singularity commands as follows:
 
   ```sh
   ls /scratch-shared/$USER/
   echo "By specifying the path to the files"
   singularity exec /scratch-shared/$USER/python2-docker.simg python /scratch-shared/$USER/python2.py   
-  singularity exec /scratch-shared/$USER/python3.simg python /scratch-shared/$USER/python3.py 
   
   echo "By using the pwd flag"
   singularity exec --pwd  /scratch-shared/$USER python2-docker.simg python python2.py
-  singularity exec --pwd  /scratch-shared/$USER python3.simg python python3.py  
   
   echo "By binding the path"
   singularity exec --bind /scratch-shared/$USER:/data python2-docker.simg python /data/python3.py
-  singularity exec --bind /scratch-shared/$USER: python3.simg python python3.py
   ```
-  All the above options work on Cartesius, but depending on how the spaces are mounted one of the above methods should succeed - hence we demonstrate them all. 
+  
+  
+ 
 
-4. discuss different container formats
-
+What does not output look like now? Do you know what the error means and how to fix it? 
+Hint: Recall the discussion in the previous section about which directories are accessible to Singularity
 
 5. recap of what we did and close
 
