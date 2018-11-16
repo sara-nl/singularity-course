@@ -129,7 +129,7 @@ singularity --version # what output do you see?
   ```
   Check the output of your job. What do you see and why?
   
-  If you recall the steps we performed in the previous section of building images there is the answer. Edit the above script for the Singularity commands to look as follows:
+  If you recall the steps we performed in the previous section of building images there is the answer. Depending on how the /scratch space is mounted the above may or may not work on other systems. Edit the above script for the Singularity commands to look as follows:
 
   ```sh
   ls /scratch-shared/$USER/
@@ -137,30 +137,17 @@ singularity --version # what output do you see?
   singularity exec /scratch-shared/$USER/python2-docker.simg python /scratch-shared/$USER/python2.py   
   singularity exec /scratch-shared/$USER/python3.simg python /scratch-shared/$USER/python3.py   
   echo "By using the pwd flag"
+  singularity exec --pwd  /scratch-shared/$USER python2-docker.simg python python2.py
   singularity exec --pwd  /scratch-shared/$USER python3.simg python python3.py  
-  singularity exec --pwd  /scratch-shared/$USER python3.simg python python3.py  
-
-  ```
-  Depending on how the /scratch space is mounted the above may or may not work on other systems. In this case you can use one of the following comamnds:
-  
-  ```sh
-  singularity exec --pwd $PWD python3.simg python python3.py   #This may also fail
-  singularity exec --bind $PWD:/data python3.simg python /data/python-example.py
-  ```
-
-singularity exec --exec --pwd /scratch-shared/$USER python3.simg python python3.py
-singularity exec --bind /scratch-shared/$USER:/data python3.simg python /data/python3.py
+  "By binding the path"
+  singularity exec --bind /scratch-shared/$USER:/data python2-docker.simg python /data/python3.py
+  singularity exec --bind /scratch-shared/$USER: python3.simg python python3.py
   ```
   
-  
-  
-  ```
-  
-  singularity exec --pwd $PWD python3.simg python python3.py   #This may also fail
-  singularity exec --bind $PWD:/data python3.simg python /data/python-example.py
-  using tmpdir -- discuss bind/mount option in more detail
 
 4. discuss different container formats
+
+
 5. recap of what we did and close
 
 
