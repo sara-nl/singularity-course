@@ -9,8 +9,7 @@ Here are your first steps:
 
 ### <a name="cartesius-login"></a> 1. Login to Cartesius
 
-* The login credentials will be provided to you at the start of the session.
-* Open a terminal in your laptop 
+The login credentials will be provided to you at the start of the session. Open a terminal in your laptop 
     
  ```sh
  ssh username@cartesius.surfsara.nl #replace `username` with the username assigned to you
@@ -18,7 +17,7 @@ Here are your first steps:
   
 ### <a name="cartesius-env"></a> 2. Get familiar with the login node
 
-* Familiarize yourself with your environment :
+Familiarize yourself with your environment :
 
  ```sh
  pwd
@@ -29,7 +28,7 @@ Here are your first steps:
 
 ### <a name="job-submit"></a> 3. Submit jobs on Cartesius using Singularity images
 
-* Submit a simple job 
+#### 3.1 Submit a simple job 
 
 Inspect the script jobsubmit-lolcow.sh:
   
@@ -58,7 +57,7 @@ Now that you have inspected the script that will submit your job, let's submit a
  
 So you ran a Singularity container that is in your home directory (on the login node) on a worker node where Singularity is actually installed.
 
-* Submit a job that runs a Python script
+#### 3.2 Submit a job that runs a Python script
 
 Inspect the script jobsubmit-python2.sh:
 
@@ -82,7 +81,7 @@ Now submit the job and inspect its output:
  cat slurm-yourjobid.out
  ```
 
-* Submit a job using $TMPDIR (for better performance than $HOME)
+#### 3.3 Submit a job using $TMPDIR (for better performance than $HOME)
 
 If you wish to have better performance, it is better to use the local /scratch space on the worker node. This can be achieved  by using the prederfined $TMPDIR variable as described below. Inspect the jobsubmit-python2-tmpdir.sh script to see the set up:
  
@@ -110,7 +109,7 @@ Now submit a job and inspect the output:
  cat slurm-yourjobid.out
  ```
   
-* Submit a job using the --bind option
+#### 3.4 Submit a job using the --bind option
 
 Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? Is there a better way? You can use a /scratch-shared space that is shared by the worker nodes. It can be a temporary placeholder for the images when you run your jobs.
 
