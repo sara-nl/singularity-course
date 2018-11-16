@@ -106,7 +106,7 @@ singularity --version # what output do you see?
   ```
   
 * Submit a job using the --bind option
-  Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? Is there a better way? You can use a /scratch space that is shared by the worker nodes. It can be a temporary placeholder when you run your jobs.
+  Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? Is there a better way? You can use a /scratch-shared space that is shared by the worker nodes. It can be a temporary placeholder for the images when you run your jobs.
 
   ```sh
   mkdir /scratch-shared/$USER/
@@ -135,15 +135,17 @@ singularity --version # what output do you see?
   ls /scratch-shared/$USER/
   echo "By specifying the path to the files"
   singularity exec /scratch-shared/$USER/python2-docker.simg python /scratch-shared/$USER/python2.py   
-  singularity exec /scratch-shared/$USER/python3.simg python /scratch-shared/$USER/python3.py   
+  singularity exec /scratch-shared/$USER/python3.simg python /scratch-shared/$USER/python3.py 
+  
   echo "By using the pwd flag"
   singularity exec --pwd  /scratch-shared/$USER python2-docker.simg python python2.py
   singularity exec --pwd  /scratch-shared/$USER python3.simg python python3.py  
-  "By binding the path"
+  
+  echo "By binding the path"
   singularity exec --bind /scratch-shared/$USER:/data python2-docker.simg python /data/python3.py
   singularity exec --bind /scratch-shared/$USER: python3.simg python python3.py
   ```
-  
+  All the above options work on Cartesius, but depending on how the spaces are mounted one of the above methods should succeed - hence we demonstrate them all. 
 
 4. discuss different container formats
 
