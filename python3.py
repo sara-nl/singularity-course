@@ -17,7 +17,7 @@ mi = str(now.minute)
 ss = str(now.second)
 
 print ("=====================================================================")
-print ("Hello, you are running the Python2 script to print the date and time" )
+print ("Hello, you are running the Python3 script to print the date and time" )
 print ("=====================================================================")
 
 print ("Date: " + mm + "/" + dd + "/" + yyyy + " Time: " + hour + ":" + mi + ":" + ss)
