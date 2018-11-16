@@ -20,116 +20,122 @@ Here are your first steps:
 
 * Familiarize yourself with your environment :
 
-```sh
-pwd
-ls -l
-python --version
-singularity --version # what output do you see?
-```
+ ```sh
+ pwd
+ ls -l
+ python --version
+ singularity --version # what output do you see?
+ ```
 
 ### <a name="job-submit"></a> 3. Submit jobs on Cartesius using Singularity images
 
 * Submit a simple job 
-  The script jobsubmit-lolcow.sh is present in your home directory that has the following contents:
+
+Inspect the script jobsubmit-lolcow.sh:
   
-  ```sh
-  cat jobsubmit-lolcow.sh
+ ```sh
+ cat jobsubmit-lolcow.sh
   
-  #!/bin/bash
-  #SBATCH -n 1
-  #SBATCH -t 10:00
-  echo "Hello I am running a singularity job with the following singularity version"
-  singularity --version
-  echo "I am running on " $HOSTNAME
-  ./GodloveD-lolcow-master-latest.simg
-  ```
-  -n: number of tasks  
-  -t: max total run time of the job, here it is 10 minutes
+ #!/bin/bash
+ #SBATCH -n 1
+ #SBATCH -t 10:00
+ echo "Hello I am running a singularity job with the following singularity version"
+ singularity --version
+ echo "I am running on " $HOSTNAME
+ ./GodloveD-lolcow-master-latest.simg
+ ```
+ -n: number of tasks  
+ -t: max total run time of the job, here it is 10 minutes
   
-  Now that you have inspected the script that will submit your job, let's submit a job by running the following:
+Now that you have inspected the script that will submit your job, let's submit a job by running the following:
   
-  ```sh
-  sbatch jobsubmit-lolcow.sh  #This command will submit a job and give you a job ID in return
-  squeue -u $USER  #Check the status of your job
-  ls  #Check if the output,slurm-jobID.out, is present
-  cat slurm-yourjobid.out
-  ```
-  So you ran a Singularity container that is in your home directory (on the login node) on a worker node where Singularity is actually installed.
+ ```sh
+ sbatch jobsubmit-lolcow.sh  #This command will submit a job and give you a job ID in return
+ squeue -u $USER  #Check the status of your job
+ ls  #Check if the output,slurm-jobID.out, is present
+ cat slurm-yourjobid.out
+ ```
+ 
+So you ran a Singularity container that is in your home directory (on the login node) on a worker node where Singularity is actually installed.
 
 * Submit a job that runs a Python script
 
- Now inspect the jobsubmit-python2.sh script. The Python scrips is located in your $HOME directory. 
+Inspect the script jobsubmit-python2.sh:
+
  ```sh
-  cat jobsubmit-python2.sh
+ cat jobsubmit-python2.sh
   
-  #!/bin/bash
-  #SBATCH -n 1
-  #SBATCH -t 10:00
-  echo "Hello I am running a singularity job with the following singularity version"
-  singularity --version
-  echo "I am running on " $HOSTNAME
-  singularity exec python2-docker.simg python python2.py
-  ```
-  Now submit the job and inspect its output:
+ #!/bin/bash
+ #SBATCH -n 1
+ #SBATCH -t 10:00
+ echo "Hello I am running a singularity job with the following singularity version"
+ singularity --version
+ echo "I am running on " $HOSTNAME
+ singularity exec python2-docker.simg python python2.py
+ ```
+Now submit the job and inspect its output:
   
-  ```sh
-  sbatch jobsubmit-python2.sh  #This command will submit a job and give you a job ID in return
-  squeue -u $USER  #Check the status of your job
-  ls  #Check if the output,slurm-jobID.out, is present
-  cat slurm-yourjobid.out
-  ```
+ ```sh
+ sbatch jobsubmit-python2.sh  #This command will submit a job and give you a job ID in return
+ squeue -u $USER  #Check the status of your job
+ ls  #Check if the output,slurm-jobID.out, is present
+ cat slurm-yourjobid.out
+ ```
+
 * Submit a job using $TMPDIR (for better performance than $HOME)
 
-  If you wish to have better performance, it is better to use the local /scratch space on the worker node. This can be achieved  by using the prederfined $TMPDIR variable as described below. Inspect the jobsubmit-python2-tmpdir.sh script to see the set up:
+If you wish to have better performance, it is better to use the local /scratch space on the worker node. This can be achieved  by using the prederfined $TMPDIR variable as described below. Inspect the jobsubmit-python2-tmpdir.sh script to see the set up:
  
  ```sh
-  cat jobsubmit-python2-tmpdir.sh
+ cat jobsubmit-python2-tmpdir.sh
   
-  #!/bin/bash
-  #SBATCH -n 1
-  #SBATCH -t 10:00
-  echo "Hello I am running a singularity job with the following singularity version"
-  singularity --version
-  echo "I am running on " $HOSTNAME
-  cp $HOME/python2.py $HOME/python2-docker.simg $TMPDIR
-  cd $TMPDIR
-  echo "I am now present in the directory " $PWD
-  singularity exec python2-docker.simg python python2.py
-  ```
-  Now submit a job and inspect the output:
+ #!/bin/bash
+ #SBATCH -n 1
+ #SBATCH -t 10:00
+ echo "Hello I am running a singularity job with the following singularity version"
+ singularity --version
+ echo "I am running on " $HOSTNAME
+ cp $HOME/python2.py $HOME/python2-docker.simg $TMPDIR
+ cd $TMPDIR
+ echo "I am now present in the directory " $PWD
+ singularity exec python2-docker.simg python python2.py
+ ```
+
+Now submit a job and inspect the output:
   
-   ```sh
-  sbatch jobsubmit-python2-tmpdir.sh  #This command will submit a job and give you a job ID in return
-  squeue -u $USER  #Check the status of your job
-  ls  #Check if the output is present in your directory
-  cat slurm-yourjobid.out
-  ```
+ ```sh
+ sbatch jobsubmit-python2-tmpdir.sh  #This command will submit a job and give you a job ID in return  
+ squeue -u $USER  #Check the status of your job
+ ls  #Check if the output is present in your directory
+ cat slurm-yourjobid.out
+ ```
   
 * Submit a job using the --bind option
-  Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? Is there a better way? You can use a /scratch-shared space that is shared by the worker nodes. It can be a temporary placeholder for the images when you run your jobs.
 
-  ```sh
-  mkdir /scratch-shared/$USER/
-  cp python* /scratch-shared/$USER  
-  ```
-  In addition we will use both the containers with differing versions of Python.
+Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? Is there a better way? You can use a /scratch-shared space that is shared by the worker nodes. It can be a temporary placeholder for the images when you run your jobs.
+
+ ```sh
+ mkdir /scratch-shared/$USER/
+ cp python* /scratch-shared/$USER  
+ ```
   
-  ```sh
-  cat jobsubmit-python2-bind.sh
+ ```sh
+ cat jobsubmit-python2-bind.sh
   
-  #!/bin/bash
-  #SBATCH -n 1
-  #SBATCH -t 10:00
-  echo "Hello I am running a singularity job with the following singularity version"
-  singularity --version
-  echo "I am running on " $HOSTNAME
-  echo "I am now present in the directory " $PWD
-  singularity exec python2-docker.simg python python2.py
-  singularity exec python3.simg python python3.py
-  ```
-  Check the output of your job. What do you see and why?
+ #!/bin/bash
+ #SBATCH -n 1
+ #SBATCH -t 10:00
+ echo "Hello I am running a singularity job with the following singularity version"
+ singularity --version
+ echo "I am running on " $HOSTNAME
+ echo "I am now present in the directory " $PWD
+ singularity exec python2-docker.simg python python2.py
+ singularity exec python3.simg python python3.py
+ ```
+
+Check the output of your job. What do you see and why?
   
-  If you recall the steps we performed in the previous section of building images there is the answer. Depending on how the /scratch space is mounted the above may or may not work on other systems. Edit the above script for the Singularity commands to look as follows:
+If you recall the steps we performed in the previous section of building images there is the answer. Depending on how the /scratch space is mounted the above may or may not work on other systems. Edit the above script for the Singularity commands to look as follows:
 
   ```sh
   ls /scratch-shared/$USER/
