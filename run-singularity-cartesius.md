@@ -154,13 +154,13 @@ Recall the steps we performed in the previous section of building images. Althou
   
 #### 3.5 Working with different software environments
 
-Now that we have figured out how to work with containers, let us run an example assuming a scenario that your collaborator gave you a Python script to run your analysis. It runs into errors as the script is in Python3 while you have Python2 on your laptop and you do not wish to install Python3. How do you work aorund it? Singularity comes to your rescue!
+Now that we have figured out how to work with containers, let us run an example assuming a scenario that your collaborator gave you a Python script to run your analysis. It runs into errors as the script is in Python3 while you have Python2 on your laptop and you do not wish to install Python3. How do you work around it? Singularity comes to your rescue!
 
-Inspect the script jobsunmit-python.sh
+Inspect the script jobsubmit-python.sh, submit the job and check your output:
 
 ```sh
 cd singularity-course
-cat jobsunmit-python.sh
+cat jobsubmit-python.sh
 
 #!/bin/bash
 #SBATCH -n 1
@@ -173,12 +173,32 @@ echo "I am now present in the directory " $PWD
 singularity exec python2-docker.simg python python2.py
 "Running your code with Python3"
 singularity exec python3.simg python python2.py
+
+sbatch jobsubmit-python.sh
 ```
 
+Now pay attention and run the correct version of Python script with the corresponding version of Python - change the last line of the above script to the following. You are nearly there!
+
+```sh
+singularity exec python3.simg python python3.py
+
+sbatch jobsubmit-python.sh
+```
+
+You can see in your output that the run is successful. You basically just ran two different versions of Python with a single script! Yey! Although this is a simple example it demonstrates the power of Singularity. 
+
+ ```sh
+ __________________________________
+< Make a wish, it might come true. >
+ ----------------------------------
+        \   ^__^
+         \  (oo)\_______
+            (__)\       )\/\
+                ||----w |
+                ||     ||
 
 
-
-
+ ```
 
 
 
