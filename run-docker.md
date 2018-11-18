@@ -97,17 +97,17 @@ Now let's run the latest Ubuntu in a container!
   
 So despite having different machines with different OS and OS versions you had one thing running in common - the latest Ubuntu!
     
-### <a name="create-image"></a> 4. Create Python images to be converted to Singularity
+### <a name="create-image"></a> 4. Create Python image to be converted to Singularity
 
 Let's create a Python image using a Dockerfile
+
    ```sh
    mkdir my-python2-container
    cd my-python2-container/
-   vi (check which editor Carlos used) Dockerfile
    ```
    Dockerfile: A file that contains all the commands used to assemble an image. 
    
-The contents of the Dockerfile should look like this:
+The contents of the Dockerfile should look like this (open a an empty file with your favourite text editor and copy the following text in it):
    ```sh
    # Use an official Python runtime as a parent image
    FROM python:2.7 
@@ -118,7 +118,7 @@ The contents of the Dockerfile should look like this:
    # Run my-python2-script.py when the container launches
    CMD ["python", "./python2.py"]
    ```
-   While saving the Dockerfile, do not add any extension (.txt,.doc) to the file. We will also run a simple Python script with this image. Make sure you have this script in your current working directory (Open the [script](https://github.com/maithili-k/singularity-course/blob/master/python2.py) and copy its contents using your favourite editor and save the file). Now let's build an image from the Dockerfile and run it
+While saving the Dockerfile, do not add any extension (.txt,.doc) to the file. We will also run a simple Python script with this image. Make sure you have this script in your current working directory (Open the [script](https://github.com/maithili-k/singularity-course/blob/master/python2.py) and copy its contents using your favourite editor and save the file). Now let's build an image from the Dockerfile and run it
    
    ```sh
    docker build -t python2-docker .
