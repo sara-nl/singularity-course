@@ -59,6 +59,7 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
    %runscript
 
       exec echo "I am running your Singulariy container!"
+      exec mkdir /mydata
       
    ```
    We are downloading the latest python version from docker://index.docker.io/library/python:latest. The `Bootstrap` and `From` keywords are mandatory. 
@@ -76,7 +77,7 @@ We will run a simple Python script with this image. Make sure you have this scri
    
    ```sh
    singularity exec --pwd $PWD python3.simg python python3.py   #This may also fail
-   singularity exec --bind $PWD:/data python3.simg python /data/python3.py
+   singularity exec --bind $PWD:/mydata python3.simg python /mydata/python3.py
    ``` 
    By default, Singularity makes the current working directory in the container the same as on the host. For resolving the current working directory, Singularity looks up the physical absolute path and may not get resolved properly for external mounts or symbolic links. 
 
