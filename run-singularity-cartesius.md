@@ -62,6 +62,7 @@ So you ran a Singularity container that is in your home directory (on the login 
 Inspect the script jobsubmit-python2.sh:
 
  ```sh
+ cd singularity-course
  cat jobsubmit-python2.sh
   
  #!/bin/bash
@@ -94,7 +95,7 @@ If you wish to have better performance, it is better to use the local /scratch s
  echo "Hello I am running a singularity job with the following singularity version"
  singularity --version
  echo "I am running on " $HOSTNAME
- cp $HOME/python2.py $HOME/python2-docker.simg $TMPDIR
+ cp $HOME/singularity-course/python2.py $HOME/singularity-course/python2-docker.simg $TMPDIR
  cd $TMPDIR
  echo "I am now present in the directory " $PWD
  singularity exec python2-docker.simg python python2.py
@@ -109,13 +110,15 @@ Now submit a job and inspect the output:
  cat slurm-yourjobid.out
  ```
   
-#### 3.4 Submit a job using the --bind option
+#### 3.4 Submit a job using the --pwd option
 
-Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? Is there a better way? You can use a /scratch-shared space that is shared by the worker nodes. It can be a temporary placeholder for the images when you run your jobs.
+Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? You may use the /scratch-shared space that is shared by all the worker nodes (unlike the local /scratch space). It can be a temporary placeholder for the images when you run your jobs.
 
  ```sh
  mkdir /scratch-shared/$USER/
  cp python* /scratch-shared/$USER  
+ cp jobsubmit-python2-bind.sh ../
+ cd $HOME
  ```
 Inspect the script jobsubmit-python2-bind.sh
 
@@ -134,25 +137,20 @@ Inspect the script jobsubmit-python2-bind.sh
 
 Check the output of your job. What do you see and why?
   
-If you recall the steps we performed in the previous section of building images there is the answer. Depending on how the /scratch space is mounted the above may or may not work on other systems. Edit the above script to add the Singularity commands as follows:
+Recall the steps we performed in the previous section of building images. Depending on how the /scratch-shared space is mounted the above may or may not work on different compute systems compared to your laptop. Edit the above script to add the Singularity commands as follows:
 
   ```sh
-  ls /scratch-shared/$USER/
   echo "By specifying the path to the files"
   singularity exec /scratch-shared/$USER/python2-docker.simg python /scratch-shared/$USER/python2.py   
   
   echo "By using the pwd flag"
-  singularity exec --pwd  /scratch-shared/$USER python2-docker.simg python python2.py
-  
-  echo "By binding the path"
-  singularity exec --bind /scratch-shared/$USER:/data python2-docker.simg python /data/python3.py
+  singularity exec --pwd  /scratch-shared/$USER /scratch-shared/$USER/python2-docker.simg python /scratch-shared/$USER/python2.py
   ```
   
-  
- 
+#### 3.5 Working with different software environments
 
-What does not output look like now? Do you know what the error means and how to fix it? 
-Hint: Recall the discussion in the previous section about which directories are accessible to Singularity
+Now that we have figured out how to work with containers, let us run the different containers we created ro demonstrate the power of containers.  
+ 
 
 5. recap of what we did and close
 
