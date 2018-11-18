@@ -58,9 +58,7 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
 
    %runscript
 
-      exec echo "I am running your Singulariy container!"
-      exec mkdir /mydata
-      
+      exec echo "I am running your Singulariy container!"      
    ```
    We are downloading the latest python version from docker://index.docker.io/library/python:latest. The `Bootstrap` and `From` keywords are mandatory. 
    
