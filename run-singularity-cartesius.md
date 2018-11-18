@@ -154,10 +154,28 @@ Recall the steps we performed in the previous section of building images. Althou
   
 #### 3.5 Working with different software environments
 
-Now that we have figured out how to work with containers, let us run the different containers we created ro demonstrate the power of containers.  
- 
+Now that we have figured out how to work with containers, let us run an example assuming a scenario that your collaborator gave you a Python script to run your analysis. It runs into errors as the script is in Python3 while you have Python2 on your laptop and you do not wish to install Python3. How do you work aorund it? Singularity comes to your rescue!
 
-5. recap of what we did and close
+Inspect the script jobsunmit-python.sh
+
+```sh
+cd singularity-course
+cat jobsunmit-python.sh
+
+#!/bin/bash
+#SBATCH -n 1
+#SBATCH -t 10:00
+echo "Hello I am running a singularity job with the following singularity version"
+singularity --version
+echo "I am running on " $HOSTNAME
+echo "I am now present in the directory " $PWD
+"Running your code with Python2"
+singularity exec python2-docker.simg python python2.py
+"Running your code with Python3"
+singularity exec python3.simg python python2.py
+```
+
+
 
 
 
