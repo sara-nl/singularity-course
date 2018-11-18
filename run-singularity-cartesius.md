@@ -110,7 +110,7 @@ Now submit a job and inspect the output:
  cat slurm-yourjobid.out
  ```
   
-#### 3.4 Submit a job using the --pwd option
+#### 3.4 Submit a job using the --pwd/--bind option
 
 Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? You may use the /scratch-shared space that is shared by all the worker nodes (unlike the local /scratch space). It can be a temporary placeholder for the images when you run your jobs.
 
@@ -145,6 +145,11 @@ Recall the steps we performed in the previous section of building images. Depend
   
   echo "By using the pwd flag"
   singularity exec --pwd  /scratch-shared/$USER /scratch-shared/$USER/python2-docker.simg python /scratch-shared/$USER/python2.py
+  
+  echo "By using the bind flag"
+  singularity exec --bind /scratch-shared/$USER:/mydata /scratch-shared/$USER/python2-docker.simg python /mydata/python2.py
+  singularity exec --bind /scratch-shared/$USER:/mydata /scratch-shared/$USER/python3.simg python /mydata/python3.py
+
   ```
   
 #### 3.5 Working with different software environments
