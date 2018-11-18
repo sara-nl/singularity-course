@@ -148,8 +148,6 @@ Recall the steps we performed in the previous section of building images. Depend
   
   echo "By using the bind flag"
   singularity exec --bind /scratch-shared/$USER:/mydata /scratch-shared/$USER/python2-docker.simg python /mydata/python2.py
-  singularity exec --bind /scratch-shared/$USER:/mydata /scratch-shared/$USER/python3.simg python /mydata/python3.py
-
   ```
   
 #### 3.5 Working with different software environments
