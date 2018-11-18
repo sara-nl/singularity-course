@@ -54,8 +54,10 @@ Now that you have inspected the script that will submit your job, let's submit a
  ls  #Check if the output,slurm-jobID.out, is present
  cat slurm-yourjobid.out
  ```
- 
-So you ran a Singularity container that is in your home directory (on the login node) on a worker node where Singularity is actually installed.
+
+> **_Food for brain:_**
+>
+> * But you just checked in Section 2 that Singularity was not installed so how come it worked? Or rather where did it run? You ran a Singularity container that is in your home directory (on the login node) on a worker node where Singularity is actually installed.
 
 #### 3.2 Submit a job that runs a Python script
 
@@ -82,6 +84,10 @@ Now submit the job and inspect its output:
  cat slurm-yourjobid.out
  ```
 
+> **_Food for brain:_**
+>
+> * You may have created a singularity image in a different version on your laptop than on Cartesius and it still worked. Can you explain? 
+    
 #### 3.3 Submit a job using $TMPDIR (for better performance than $HOME)
 
 If you wish to have better performance, it is better to use the local /scratch space on the worker node. This can be achieved  by using the prederfined $TMPDIR variable as described below. Inspect the jobsubmit-python2-tmpdir.sh script to see the set up:
@@ -100,7 +106,10 @@ If you wish to have better performance, it is better to use the local /scratch s
  echo "I am now present in the directory " $PWD
  singularity exec python2-docker.simg python python2.py
  ```
-
+> **_Food for brain:_**
+>
+> * Do you recall what $TMPDIR was?
+    
 Now submit a job and inspect the output:
   
  ```sh
@@ -112,7 +121,7 @@ Now submit a job and inspect the output:
   
 #### 3.4 Submit a job using the --pwd/--bind option
 
-Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? You may use the /scratch-shared space that is shared by all the worker nodes (unlike the local /scratch space). It can be a temporary placeholder for the images when you run your jobs.
+Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? You may use the /scratch-shared space that is shared amongst all the worker nodes (unlike the local /scratch space). It can be a temporary placeholder for the images when you run your jobs.
 
  ```sh
  mkdir /scratch-shared/$USER/
@@ -137,9 +146,13 @@ Inspect the script jobsubmit-python2-bind.sh and run a job
  sbatch jobsubmit-python2-bind.sh
  ```
 
-Check the output of your job. What do you see and why?
+Check the output of your job. 
+
+> **_Food for brain:_**
+>
+> * What do you see and why? Didn't you just tell me that the /scratch-shared is shared amongst on all worker nodes.  
   
-Recall the steps we performed in the previous section of building images. Although /scratch-shared space is mounted you need to specify the correct path. There are several ways to do it as follows:
+Recall the steps we performed in the previous section for building images. Although /scratch-shared space is mounted you need to specify the correct path. There are several ways to do it as follows:
 
   ```sh
   echo "By specifying the path to the files"
