@@ -125,7 +125,7 @@ The contents of the Dockerfile should look like this:
    exit
    ```
 
-So in a short amount of time, you just ran a Python script in a Python version that was probably different than the one on your laptop, and ran the latest version of Ubuntu without installing either one of it!
+So in a short amount of time, you just ran a Python script in a Python version that was probably different than the one on your laptop, and ran the latest version of Ubuntu without installing either one of it! 
 
 
 <!---#http://www.scmgalaxy.com/tutorials/location-of-dockers-images-in-all-operating-systems/>
