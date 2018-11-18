@@ -188,9 +188,9 @@ sbatch jobsubmit-python.sh
 You can see in your output that the run is successful. You basically just ran two different versions of Python with a single script! Yey! Although this is a simple example it demonstrates the power of Singularity. 
 
  ```sh
- __________________________________
-< Make a wish, it might come true. >
- ----------------------------------
+ _________________________________________________________________
+< You may now show off your Singularity skills to your colleagues! >
+ -----------------------------------------------------------------
         \   ^__^
          \  (oo)\_______
             (__)\       )\/\
