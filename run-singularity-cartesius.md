@@ -118,7 +118,7 @@ Now lets say you need to submit tens of hundreds of jobs. Can you afford an over
  mkdir /scratch-shared/$USER/
  cp python* /scratch-shared/$USER  
  cp jobsubmit-python2-bind.sh ../
- cd $HOME
+ cd ../
  ```
 Inspect the script jobsubmit-python2-bind.sh
 
