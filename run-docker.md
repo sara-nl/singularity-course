@@ -59,6 +59,11 @@ Container: A container is a runtime instance of an image - what the image become
    -i: This starts the container in interactive mode   
    -t: Allocates a pseudo-TTY
    
+> **_Food for brain b1:_**
+>
+> * You just exited the container but looks like it is stll haning around. Can you explain?
+
+   
 By default a container’s file system persists even after the container exits. To remove the container (this does not remove the image) you should run
 
    ```sh
