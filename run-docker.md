@@ -37,14 +37,18 @@ Let us first start the docker daemon:
 Image: An image  is an executable package that includes everything needed to run an application.    
 Container: A container is a runtime instance of an image - what the image becomes when executed. 
 
-* This command downloads a test image and runs it in a container. 
-
+* Run the following command and see what happens: 
 
     ```sh
     docker run hello-world
     docker image ls  # can you see your hello-world image?
     docker container ls --all   # can you see your hello-world container?
     ```  
+    
+> **_Food for brain:_**
+>
+> * How come you ran a container when you didn't have the image in the first place?
+>   Hint: look into what happened when you ran the first command 
     
 ### <a name="run-interactive"></a> 3. Run interactive containers
 
@@ -59,9 +63,9 @@ Container: A container is a runtime instance of an image - what the image become
    -i: This starts the container in interactive mode   
    -t: Allocates a pseudo-TTY
    
-> **_Food for brain b1:_**
+> **_Food for brain:_**
 >
-> * You just exited the container but looks like it is stll haning around. Can you explain?
+> * You just exited the container but looks like it is stll hanging around. Can you explain?
 
    
 By default a container’s file system persists even after the container exits. To remove the container (this does not remove the image) you should run
