@@ -139,7 +139,7 @@ Inspect the script jobsubmit-python2-bind.sh and run a job
 
 Check the output of your job. What do you see and why?
   
-Recall the steps we performed in the previous section of building images. Depending on how the /scratch-shared space is mounted the above may or may not work on different compute systems compared to your laptop. Edit the above script to add the Singularity commands as follows:
+Recall the steps we performed in the previous section of building images. Although /scratch-shared space is mounted you need to specify the correct path. There are several ways to do it as follows:
 
   ```sh
   echo "By specifying the path to the files"
