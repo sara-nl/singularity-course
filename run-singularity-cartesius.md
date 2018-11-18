@@ -120,7 +120,7 @@ Now lets say you need to submit tens of hundreds of jobs. Can you afford an over
  cp jobsubmit-python2-bind.sh ../
  cd ../
  ```
-Inspect the script jobsubmit-python2-bind.sh
+Inspect the script jobsubmit-python2-bind.sh and run a job
 
  ```sh
  cat jobsubmit-python2-bind.sh
@@ -133,6 +133,8 @@ Inspect the script jobsubmit-python2-bind.sh
  echo "I am running on " $HOSTNAME
  echo "I am now present in the directory " $PWD
  singularity exec python2-docker.simg python python2.py
+ 
+ sbatch jobsubmit-python2-bind.sh
  ```
 
 Check the output of your job. What do you see and why?
