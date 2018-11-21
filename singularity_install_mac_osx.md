@@ -45,10 +45,10 @@ When the access issue has been resolved, try to install VirtualBox again and it 
     $ brew cask install vagrant-manager
     $ mkdir singularity-vm
     $ cd singularity-vm
-    $ vagrant init singularityware/singularity-2.4   
     
-    *Note: If this directory is not new then first run $ vagrant destroy*
-
+    Note: If this directory is not new then first run $ vagrant destroy
+    
+    $ vagrant init singularityware/singularity-2.4       
     $ vagrant up
     $ vagrant ssh
     ```
