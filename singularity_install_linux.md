@@ -19,8 +19,11 @@ The instructions below refer to two different flavors of Linux:
   
 # **A. Installation on CentOS verion 7.5 (2018-11-01)**
 
+Before installing the Development tools, it may be advisable to run the yum clean all command. This will clear the yum cache and force it to reread any changed configuration files.
+
 Please use a bash terminal.
 
+        $ sudo yum clean all
         $ sudo yum groupinstall "Development Tools"
         $ sudo yum install -y xorg-x11-server-Xorg xorg-x11-xauth xorg-x11-apps
         $ sudo yum install libarchive-devel
