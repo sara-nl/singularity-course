@@ -25,8 +25,12 @@ Windows does not provide support for Singularity. Singularity for Windows is the
 
 **Installation steps for Singularity version 2.4 on Windows**
 
-1. Download VirtualBox (here version 5.2.22), for Windows hosts, from: https://www.virtualbox.org/wiki/Downloads
+1. Install Git for Windows, from: https://gitforwindows.org/
 
-2. Run the .exe file (e.g. VirtualBox-5.2.22-126460-Win.exe) to install VirtualBox
+*Please note that for Git you need to chose the correct version of the .exe file that suits your specific laptop. On the linked webpage select Git-<version>-<XX-bit>.exe, where XX-bit is either 32-bit or 64-bit. To determine the correct .exe file you may for Windows 10 use; Tap or click PC and devices, and then tap or click PC info. Look under Windows for the version and edition of Windows that your PC is running. Look under PC for System type to see if you're running a 32-bit or 64-bit version of Windows.*  
 
-3. ...
+2. Download VirtualBox (here version 5.2.22), for Windows hosts, from: https://www.virtualbox.org/wiki/Downloads
+
+3. Run the .exe file (e.g. VirtualBox-5.2.22-126460-Win.exe) to install VirtualBox
+
+4. ...
