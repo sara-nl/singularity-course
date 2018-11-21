@@ -1,16 +1,14 @@
-#=====================================================================================
-# Singularity course 2018: Singularity Version 2.6.0
+# Installation of Singularity Version 2.6.0
 
 AUTHOR: SURFsara DDP Team @ SURFsara
 
 DESCRIPTION: Instructions for installing Singularity version 2.6.0 for Mac OS X distributions below.
 
 VERSION/DATE: 0.1/16-11-2018 
-#=====================================================================================
 
 We will use the public Singularity version from GitHub (also known as the community version)
 
-# **Installation on Mac OS X Mojave (2018-11-05)**
+### Installation on Mac OS X Mojave (2018-11-05)
 
 The below documentation for the installation closely follows: 
 
