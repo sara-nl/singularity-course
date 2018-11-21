@@ -71,6 +71,7 @@ Inspect the script jobsubmit-python2.sh:
  #!/bin/bash
  #SBATCH -n 1
  #SBATCH -t 10:00
+ #SBATCH --reservation=singularity
  echo "Hello I am running a singularity job with the following singularity version"
  singularity --version
  echo "I am running on " $HOSTNAME
@@ -99,6 +100,7 @@ If you wish to have better performance, it is better to use the local /scratch s
  #!/bin/bash
  #SBATCH -n 1
  #SBATCH -t 10:00
+ #SBATCH --reservation=singularity
  echo "Hello I am running a singularity job with the following singularity version"
  singularity --version
  echo "I am running on " $HOSTNAME
@@ -138,6 +140,7 @@ Inspect the script jobsubmit-python2-bind.sh and run a job
  #!/bin/bash
  #SBATCH -n 1
  #SBATCH -t 10:00
+ #SBATCH --reservation=singularity
  echo "Hello I am running a singularity job with the following singularity version"
  singularity --version
  echo "I am running on " $HOSTNAME
@@ -179,6 +182,7 @@ cat jobsubmit-python.sh
 #!/bin/bash
 #SBATCH -n 1
 #SBATCH -t 10:00
+#SBATCH --reservation=singularity
 echo "Hello I am running a singularity job with the following singularity version"
 singularity --version
 echo "I am running on " $HOSTNAME
