@@ -132,7 +132,7 @@ So despite having different machines with different OS and OS versions you had o
    wget https://raw.githubusercontent.com/maithili-k/singularity-course/master/python2.py
    ```
 
-* Open a an empty file with your favourite text editor and copy the following text in it. Save the file with name `Dockerfile` and do not add any extension (.txt,.doc) to it:
+* Open an empty file with your favourite text editor and copy the following text in it. Save the file with name `Dockerfile` and do not add any extension (.txt,.doc) to it:
 
    ```sh
    # Use an official Python runtime as a parent image
