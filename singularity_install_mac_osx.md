@@ -3,7 +3,7 @@
 
 AUTHOR: SURFsara DDP Team @ SURFsara
 
-DESCRIPTION: Instructions for installing Singularity version 2.6.0 for Linux distributions below.
+DESCRIPTION: Instructions for installing Singularity version 2.6.0 for Mac OS X distributions below.
 
 VERSION/DATE: 0.1/16-11-2018 
 #=======================================================================================
@@ -19,7 +19,7 @@ The below documentation for the installation closely follows:
 
 Mac OS X does not provide support for Singularity. Singularity for Mac OS X is therefore based on first installing Oracle VirtualBox which is a free and open-source hosted hypervisor for x86 computers. We will install Vagrant on top of VirtualBox. Vagrant is a tool for building and distributing development environments (https://github.com/hashicorp/vagrant). Using Vagrant we will then pull an Ubuntu 16.04.3 VM, containing a pre-built Singularity installation, and run it in VirtualBox. 
 
-*Please note that the available Vagrant files have not yet moved moved beyond Singularity version 2.4. If a higher of singularity is required it is possible to build your own [Linux](https://github.com/maithili-k/singularity-course/blob/master/singularity_install_linux.md) VM using VirtualBox and/or Vagrant and install Singularity within that. This is however beyond thescope of this course and we will therefore stick to version 2.4 when considering Mac OS X.*
+*Please note that the available Vagrant files have not yet moved moved beyond Singularity version 2.4. If a higher version of singularity is required then it is possible to build your own [Linux](https://github.com/maithili-k/singularity-course/blob/master/singularity_install_linux.md) VM using VirtualBox and/or Vagrant and install Singularity within that. This is however beyond thescope of this course and we will therefore stick to version 2.4 when considering Mac OS X.*
 
 
 
