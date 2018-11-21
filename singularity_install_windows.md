@@ -25,4 +25,8 @@ Windows does not provide support for Singularity. Singularity for Windows is the
 
 **Installation steps for Singularity version 2.4 on Windows**
 
-1. Download VirtualBox (here version 5.2.20), for Windows hosts, from: https://www.virtualbox.org/wiki/Downloads
+1. Download VirtualBox (here version 5.2.22), for Windows hosts, from: https://www.virtualbox.org/wiki/Downloads
+
+2. Run the .exe file (e.g. VirtualBox-5.2.22-126460-Win.exe) to install VirtualBox
+
+3. ...
