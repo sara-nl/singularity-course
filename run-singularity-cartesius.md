@@ -187,9 +187,9 @@ echo "Hello I am running a singularity job with the following singularity versio
 singularity --version
 echo "I am running on " $HOSTNAME
 echo "I am now present in the directory " $PWD
-"Running your code with Python2"
+echo "Running your code with Python2"
 singularity exec python2-docker.simg python python2.py
-"Running your code with Python3"
+echo "Running your code with Python3"
 singularity exec python3.simg python python2.py
 
 sbatch jobsubmit-python.sh
