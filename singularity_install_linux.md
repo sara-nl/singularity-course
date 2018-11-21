@@ -1,15 +1,9 @@
-#=======================================================================================
 # Singularity course 2018: Singularity Version 2.6.0
 
-AUTHOR: SURFsara DDP Team @ SURFsara
+DESCRIPTION: Instructions for installing Singularity version 2.6.0 for Linux distributions below. 
 
-DESCRIPTION: Instructions for installing Singularity version 2.6.0 for Linux distributions below.
-
-VERSION/DATE: 0.1/16-11-2018
-#=======================================================================================
-    
-  
-  
+VERSION/DATE: 0.1/16-11-2018 
+        
 We will use the public Singularity version from GitHub (also known as the community version)
 
 The instructions below refer to two different flavors of Linux: 
@@ -43,8 +37,6 @@ Please use a bash terminal.
           + test -u /usr/local/libexec/singularity/bin/start-suid                               (retval=0) OK
           
   
-  
-  
 # **B. Installation on Ubuntu 18.04.1 and 16.04.5 (2018-11-01)** 
 
 Please use a bash terminal.
@@ -67,8 +59,7 @@ Please use a bash terminal.
           + test -u /usr/local/libexec/singularity/bin/mount-suid                               (retval=0) OK
           + test -u /usr/local/libexec/singularity/bin/start-suid                               (retval=0) OK
   
-  
-
+ 
 
 Additional information and alternative installation options may e.g., be obtained from the singularity documentation 
 
