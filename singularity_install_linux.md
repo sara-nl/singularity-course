@@ -1,4 +1,4 @@
-# Singularity course 2018: Singularity Version 2.6.0
+# Installation of Singularity Version 2.6.0
 
 DESCRIPTION: Instructions for installing Singularity version 2.6.0 for Linux distributions below. 
 
@@ -10,9 +10,11 @@ The instructions below refer to two different flavors of Linux:
 - (A) RPM-based distributions: here we will focus on CentOS 7.5
 - (B) Debian-based distributions: here we will focus on Ubuntu 18.04.1 (and 16.04.5)
   
-  
-# **A. Installation on CentOS verion 7.5 (2018-11-01)**
+A. [Installation on CentOS verion 7.5](#installation-centos)
+B. [Installation on Ubuntu 18.04.1 and 16.04.5](#installation-ubuntu)
 
+### <a name="installation-centos"></a> A. Installation on CentOS verion 7.5 (2018-11-01)
+  
 Before installing the Development tools, it may be advisable to run the yum clean all command. This will clear the yum cache and force it to reread any changed configuration files.
 
 Please use a bash terminal.
@@ -36,9 +38,8 @@ Please use a bash terminal.
           + test -u /usr/local/libexec/singularity/bin/mount-suid                               (retval=0) OK
           + test -u /usr/local/libexec/singularity/bin/start-suid                               (retval=0) OK
           
-  
-# **B. Installation on Ubuntu 18.04.1 and 16.04.5 (2018-11-01)** 
-
+### <a name="installation-ubuntu"></a> B. Installation on Ubuntu 18.04.1 and 16.04.5 (2018-11-01)
+ 
 Please use a bash terminal.
 
         $ sudo apt-get install libarchive-dev
