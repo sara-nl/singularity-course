@@ -1,4 +1,4 @@
-#=======================================================================================
+#=====================================================================================
 # Singularity course 2018: Singularity Version 2.6.0
 
 AUTHOR: SURFsara DDP Team @ SURFsara
@@ -6,7 +6,7 @@ AUTHOR: SURFsara DDP Team @ SURFsara
 DESCRIPTION: Instructions for installing Singularity version 2.6.0 for Mac OS X distributions below.
 
 VERSION/DATE: 0.1/16-11-2018 
-#=======================================================================================
+#=====================================================================================
 
 We will use the public Singularity version from GitHub (also known as the community version)
 
@@ -38,18 +38,21 @@ Apple menu -> System preferences -> Security & Privacy -> General -> "Allow acce
 When the access issue has been resolved, try to install VirtualBox again and it should now succeed. 
 
 3. Continue by installing Vagrant.
-
-    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
-    $ brew cask install vagrant  
-    $ brew cask install vagrant-manager  
+    
+    ```sh
+    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    $ brew cask install vagrant
+    $ brew cask install vagrant-manager
     $ mkdir singularity-vm
     $ cd singularity-vm
     $ vagrant init singularityware/singularity-2.4   (note do vagrant destroy if it already exists, or create new dir)
     $ vagrant up
     $ vagrant ssh
+    ```
 
 The vagrant ssh command will take you inside the Vagrant VirtualBox VM image and here you can run singularity (2.4):
 
+    ```sh
     $ vagrant ssh
     $ which singularity
       /usr/local/bin/singularity
@@ -58,12 +61,15 @@ The vagrant ssh command will take you inside the Vagrant VirtualBox VM image and
       + test -u /usr/local/libexec/singularity/bin/action-suid                              (retval=0) OK
       + test -u /usr/local/libexec/singularity/bin/mount-suid                               (retval=0) OK
       + test -u /usr/local/libexec/singularity/bin/start-suid                               (retval=0) OK
+    ```
 
 Exit your Vagrant environment 
-        
+    
+    ```sh
     $ exit
       logout
       Connection to 127.0.0.1 closed.
+    ```
 
 Halt your running VM (i.e. terminate it and thereby release the resources it is using on your laptop)
 
