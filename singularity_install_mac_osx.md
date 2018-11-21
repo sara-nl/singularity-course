@@ -50,9 +50,8 @@ When the access issue has been resolved, try to install VirtualBox again and it 
     $ vagrant ssh
     ```
 
-The vagrant ssh command will take you inside the Vagrant VirtualBox VM image and here you can run singularity (2.4):
+The vagrant ssh command will take you inside the Vagrant VirtualBox VM image and here you can run singularity (2.4).
 
-    ```sh
     $ vagrant ssh
     $ which singularity
       /usr/local/bin/singularity
@@ -61,19 +60,16 @@ The vagrant ssh command will take you inside the Vagrant VirtualBox VM image and
       + test -u /usr/local/libexec/singularity/bin/action-suid                              (retval=0) OK
       + test -u /usr/local/libexec/singularity/bin/mount-suid                               (retval=0) OK
       + test -u /usr/local/libexec/singularity/bin/start-suid                               (retval=0) OK
-    ```
 
-Exit your Vagrant environment 
+Exit your Vagrant environment.
     
-    ```sh
     $ exit
       logout
       Connection to 127.0.0.1 closed.
-    ```
 
 Halt your running VM (i.e. terminate it and thereby release the resources it is using on your laptop)
 
-    $  vagrant halt
+    $ vagrant halt
        Attempting graceful shutdown of VM...
 
 To restart the VM, use  
