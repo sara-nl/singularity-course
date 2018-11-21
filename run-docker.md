@@ -18,20 +18,25 @@ Let us first start the docker daemon:
     ```sh
     sudo service docker start
     ```
-* Mac: Start the docker daemon via Launchpad.
+* Mac: Start the docker daemon via Launchpad. The Docker whale icon is displayed in your menu bar
 
 * Windows: Search for Docker, select Docker for Windows in the search results, and click it (or hit Enter)
- 
+
+> **NB: For Linux, preface all the docker commands in exercises below with `sudo`**
   
 ### <a name="check-docker"></a> 2. Check the docker installation
 
-* Getting started: Run the following commands in a terminal 
+* Getting started: Run the following commands in a terminal  
 
     ```sh
-    docker --version
-    docker info
-    docker image ls
-    docker container ls --all
+    # Get help for docker commands and info 
+    docker
+    docker version
+    docker info 
+    # List all docker images stored in your laptop
+    docker image ls 
+    # List all containers spawned in your laptop, running or stopped
+    docker container ls --all  #or docker ps -a
     ```
 
 Image: An image  is an executable package that includes everything needed to run an application.    
@@ -41,41 +46,54 @@ Container: A container is a runtime instance of an image - what the image become
 
     ```sh
     docker run hello-world
-    docker image ls  # can you see your hello-world image?
-    docker container ls --all   # can you see your hello-world container?
     ```  
-    
+
+* List your images and your containers again
+
 > **_Food for brain:_**
 >
 > * How come you ran a container when you didn't have the image in the first place?
->   Hint: look into what happened when you ran the first command 
+> * Repeat the hello-world example a couple of times. What happens to the lists of images and containers?  
+> * Can you find the IDs and names of your containers?
+
     
 ### <a name="run-interactive"></a> 3. Run interactive containers
 
-* The following command downloads the latest bash image and runs it in the interactive mode
+* The following command downloads the latest bash image and runs it in the interactive mode. Try it:
 
    ```sh
    docker run -it bash
    ls #run similar linux commands to see what the environment looks like
    exit
-   docker container ls -all  # or docker ps -a
    ```
    -i: This starts the container in interactive mode   
    -t: Allocates a pseudo-TTY
    
+ * Start again the container you exited interactively:
+ 
+    ```sh
+   docker start -a -i my-container # replace 'my-container' with your container ID or name 
+   exit
+   ```
+   
 > **_Food for brain:_**
 >
-> * You just exited the container but looks like it is stll hanging around. Can you explain?
-
+> * You just exited the container but looks like it is still hanging around. Can you explain?
    
-By default a container’s file system persists even after the container exits. To remove the container (this does not remove the image) you should run
+By default a container’s file system persists even after the container exits. This can fill up easily your disk space. To remove a container from your system you should run:
 
    ```sh
-   docker rm container-name # replace with your container-name
+   docker rm my-container # replace 'my-container' with the container ID or name to be removed
    docker rm $(docker ps -a -q) # this removes all stopped containers
    ```
    
-Now let's run the latest Ubuntu in a container!
+> **_Food for brain:_**
+>
+> * What happened to the corresponding images of the deleted containers? Can you still make new instances (or containers) from the same images? 
+> * Start a container interactively from the `bash` image and create a file (e.g. `echo "Hello World!" > myfile`), then exit the container and start another container. What happened to your data?
+
+
+* Now let's run the latest Ubuntu in a container!
 
    ```sh
    docker run -it --rm -v $PWD:/my-first-docker ubuntu /bin/bash 
@@ -99,15 +117,23 @@ So despite having different machines with different OS and OS versions you had o
     
 ### <a name="create-image"></a> 4. Create Python image to be converted to Singularity
 
-Let's create a Python image using a Dockerfile
+* Let's create a Python image using a Dockerfile
 
    ```sh
    mkdir my-python2-container
    cd my-python2-container/
    ```
-   Dockerfile: A file that contains all the commands used to assemble an image. 
    
-The contents of the Dockerfile should look like this (open a an empty file with your favourite text editor and copy the following text in it):
+   Dockerfile: A file that contains all the commands used to assemble an image. 
+
+* We will create an image and run a simple Python script with it. Download the script in your current working directory:
+
+   ```sh
+   wget https://raw.githubusercontent.com/maithili-k/singularity-course/master/python2.py
+   ```
+
+* Open a an empty file with your favourite text editor and copy the following text in it. Save the file with name `Dockerfile` and do not add any extension (.txt,.doc) to it:
+
    ```sh
    # Use an official Python runtime as a parent image
    FROM python:2.7 
@@ -118,7 +144,8 @@ The contents of the Dockerfile should look like this (open a an empty file with 
    # Run my-python2-script.py when the container launches
    CMD ["python", "./python2.py"]
    ```
-While saving the Dockerfile, do not add any extension (.txt,.doc) to the file. We will also run a simple Python script with this image. Make sure you have this script in your current working directory (Open the [script](https://github.com/maithili-k/singularity-course/blob/master/python2.py) and copy its contents using your favourite editor and save the file). Now let's build an image from the Dockerfile and run it
+   
+*  Now let's build an image from the Dockerfile and run it:
    
    ```sh
    docker build -t python2-docker .
