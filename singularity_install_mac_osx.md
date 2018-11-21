@@ -72,6 +72,7 @@ Halt your running VM (i.e. terminate it and thereby release the resources it is 
     $ vagrant halt
        Attempting graceful shutdown of VM...
 
-To restart the VM, use  
+To restart the VM and access the image containing singularity again, use  
 
-    $ vagrant up  (and follow this by , $ vagrant ssh , to get into the image again)
+    $ vagrant up  
+    $ vagrant ssh
