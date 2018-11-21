@@ -35,7 +35,9 @@ Apple menu -> System preferences -> Security & Privacy -> General -> "Allow acce
   * the access being prevented may not show up in General under after the first failed installation trial
   * This error would also be visible as an "NE_ERROR_" error, e.g. when trying to run (a) $ vagrant up, or (b) $ trying to create a new VM in the GUI for VirtualBox
   
-When the access issue has been resolved, try to install VirtualBox again and it should now succeed. Continue by installing Vagrant.
+When the access issue has been resolved, try to install VirtualBox again and it should now succeed. 
+
+3. Continue by installing Vagrant.
 
     $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     $ brew cask install vagrant
