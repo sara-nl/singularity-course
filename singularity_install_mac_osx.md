@@ -39,9 +39,9 @@ When the access issue has been resolved, try to install VirtualBox again and it 
 
 3. Continue by installing Vagrant.
 
-    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    $ brew cask install vagrant
-    $ brew cask install vagrant-manager
+    $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"  
+    $ brew cask install vagrant  
+    $ brew cask install vagrant-manager  
     $ mkdir singularity-vm
     $ cd singularity-vm
     $ vagrant init singularityware/singularity-2.4   (note do vagrant destroy if it already exists, or create new dir)
