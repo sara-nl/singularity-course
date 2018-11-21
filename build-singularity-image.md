@@ -62,9 +62,10 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
    ```
    We are downloading the latest python version from docker://index.docker.io/library/python:latest. The `Bootstrap` and `From` keywords are mandatory. 
    
-We will run a simple Python script with this image. Make sure you have this script in your current working directory (Open the [script](https://github.com/maithili-k/singularity-course/blob/master/python3.py) and copy its contents using your favourite editor and save the file) With this recipe let's build the image and run the container:
+We will run a simple Python script with this image. First we download the example script and then we use the recipe to build the image and run the container:
 
    ```sh
+   wget https://raw.githubusercontent.com/maithili-k/singularity-course/master/python3.py
    sudo singularity build python3.simg python3-recipe
    singularity exec python3.simg python
    exit()
@@ -104,7 +105,7 @@ We can copy all our sinularity images to Cartesius. As this may take long or you
 
    ```sh
    du -sh *simg  #make sure it is not too big
-   scp *simg username@cartesius.surfsara.nl:/home/$USER
+   scp *simg username@cartesius.surfsara.nl:~
    ```
 
 **Note: If you want to build Singularity images without having singularity installed in a build environment, you can build images using Singularity Hub instead - https://github.com/singularityhub/singularityhub.github.io/wiki
