@@ -38,6 +38,7 @@ Inspect the script jobsubmit-lolcow.sh:
  #!/bin/bash
  #SBATCH -n 1
  #SBATCH -t 10:00
+ #SBATCH --reservation=singularity
  echo "Hello I am running a singularity job with the following singularity version"
  singularity --version
  echo "I am running on " $HOSTNAME
