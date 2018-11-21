@@ -1,16 +1,12 @@
-#=======================================================================================
-# Singularity course 2018: Singularity Version 2.6.0
-
-AUTHOR: SURFsara DDP Team @ SURFsara
+# Installation of Singularity Version 2.6.0
 
 DESCRIPTION: Instructions for installing Singularity version 2.6.0 for Windows below.
 
 VERSION/DATE: 0.1/16-11-2018 
-#=======================================================================================
 
 We will use the public Singularity version from GitHub (also known as the community version)
 
-# **Installation on Windows**
+### Installation on Windows
 
 The below documentation for the installation follows the information as provided by Sylabs: 
 
@@ -23,7 +19,7 @@ Windows does not provide support for Singularity. Singularity for Windows is the
 
 
 
-**Installation steps for Singularity version 2.4 on Windows**
+### Installation steps for Singularity version 2.4 on Windows
 
 *Please note that the above steps have not been tested by us and we can guarentee that these will work*
 
