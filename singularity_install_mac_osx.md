@@ -25,7 +25,7 @@ Mac OS X does not provide support for Singularity. Singularity for Mac OS X is t
 
 **Installation steps for Singularity version 2.4 on Mac OS X (Mojave)**
 
-1. Download VirtualBox (here version 5.2.20), for OS X hosts, from: https://www.virtualbox.org/wiki/Downloads
+1. Download VirtualBox (here version 5.2.22), for OS X hosts, from: https://www.virtualbox.org/wiki/Downloads
 
 2. Unpack the dmg and install it. This may not work directly as Mac OS X prevents Oracle to have access. To resolved this please go to;
 
