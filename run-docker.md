@@ -2,7 +2,7 @@
 
 1. [Start docker daemon](#start-docker)
 2. [Check Docker installation](#check-docker)
-3. [Run interactive containers](#run-interactive)
+3. [Run containers](#run-containers)
 4. [Create a Python image to be converted to Singularity](#create-image) 
 
 ### <a name="start-docker"></a> 1. Start docker daemon
@@ -41,6 +41,8 @@ Let us first start the docker daemon:
 
 Image: An image  is an executable package that includes everything needed to run an application.    
 Container: A container is a runtime instance of an image - what the image becomes when executed. 
+    
+### <a name="run-containers"></a> 3. Run containers
 
 * Run the following command and see what happens: 
 
@@ -56,10 +58,7 @@ Container: A container is a runtime instance of an image - what the image become
 > * Repeat the hello-world example a couple of times. What happens to the lists of images and containers?  
 > * Can you find the IDs and names of your containers?
 
-    
-### <a name="run-interactive"></a> 3. Run interactive containers
-
-* The following command downloads the latest bash image and runs it in the interactive mode. Try it:
+* Now let's run a container in an interactive mode. The following command downloads the latest bash image and runs it in the interactive mode. Try it:
 
    ```sh
    docker run -it bash
