@@ -77,7 +77,7 @@
    singularity exec python3.simg python python3.py #This may fail 
    ```
    
- * By default singularity bind mounts /home/$USER, /tmp, and $PWD into your container at runtime. To bind more mounts more do the following:
+ * By default singularity bind mounts /home/$USER, /tmp, and $PWD into your container at runtime. To bind more mounts do the following:
    
    ```sh
    singularity exec --pwd $PWD python3.simg python python3.py   #This may also fail
