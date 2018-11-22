@@ -111,7 +111,7 @@
    
 ### <a name="copy-sing-cart"></a> 4. Copy Singularity images to Cartesius
 
-* We can copy all our sinularity images to Cartesius. As this may take long or you don't have singularity installed on your workstation there are some ready to use Singularity images for you on Cartesius so you can also skip this step.
+* We can copy all our singularity images to Cartesius. As this may take long or you don't have singularity installed on your workstation there are some ready to use Singularity images for you on Cartesius so you can also skip this step.
 
    ```sh
    du -sh *simg  #make sure it is not too big
