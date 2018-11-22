@@ -5,7 +5,6 @@ Here are your first steps:
 1. [Login to Cartesius](#cartesius-login)
 2. [Get familiar with the login node](#cartesius-env)
 3. [Submit jobs](#job-submit)
-4. [Recap of what has been done](#wrap-up)
 
 ### <a name="cartesius-login"></a> 1. Login to Cartesius
 
@@ -218,7 +217,6 @@ You can see in your output that the run is successful. You basically just ran tw
 
  ```
 
-### <a name="wrap-up"></a> 4. Recap
 
 
 
