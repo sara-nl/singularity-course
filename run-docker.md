@@ -79,7 +79,7 @@ Container: A container is a runtime instance of an image - what the image become
 >
 > * You just exited the container but looks like it is still hanging around. Can you explain?
    
-By default a container’s file system persists even after the container exits. This can fill up easily your disk space. To remove a container from your system you should run:
+By default a container’s file system persists even after the container exits. To remove a container from your system you should run:
 
    ```sh
    docker rm my-container # replace 'my-container' with the container ID or name to be removed
@@ -89,7 +89,7 @@ By default a container’s file system persists even after the container exits. 
 > **_Food for brain:_**
 >
 > * What happened to the corresponding images of the deleted containers? Can you still make new instances (or containers) from the same images? 
-> * Start a container interactively from the `bash` image and create a file (e.g. `echo "Hello World!" > myfile`), then exit the container and start another container. What happened to your data?
+> * Start a container interactively from the `bash` image and create a file (e.g. `echo "Hello World!" > myfile`), then exit the container and start another container. What happened to your data? Can you read your file again?
 
 
 * Now let's run the latest Ubuntu in a container!
