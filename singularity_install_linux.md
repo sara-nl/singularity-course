@@ -8,7 +8,7 @@ We will use the public Singularity version from GitHub (also known as the commun
 
 The instructions below refer to two different flavors of Linux: 
 - (A) RPM-based distributions: here we will focus on [CentOS 7.5](#installation-centos)
-- (B) Debian-based distributions: here we will focus on [Ubuntu 18.04.1 (and 16.04.5)]((#installation-ubuntu))
+- (B) Debian-based distributions: here we will focus on [Ubuntu 18.04.1 (and 16.04.5)](#installation-ubuntu)
 
 ### <a name="installation-centos"></a> A. Installation on CentOS verion 7.5 (2018-11-01)
   
