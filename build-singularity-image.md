@@ -65,7 +65,7 @@ You will need Singularity installed on your laptop to proceed. If you did not ma
 We will run a simple Python script with this image. First we download the example script and then we use the recipe to build the image and run the container:
 
    ```sh
-   wget https://raw.githubusercontent.com/maithili-k/singularity-course/master/python3.py
+   wget https://raw.githubusercontent.com/sara-nl/singularity-course/master/python3.py
    sudo singularity build python3.simg python3-recipe
    singularity exec python3.simg python
    exit()
