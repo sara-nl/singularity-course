@@ -128,6 +128,7 @@ So despite having different machines with different OS and OS versions you had o
 * We will create an image and run a simple Python script with it. Download the script in your current working directory:
 
    ```sh
+   wget https://github.com/sara-nl/singularity-course/blob/master/python2.py
    wget https://raw.githubusercontent.com/maithili-k/singularity-course/master/python2.py
    ```
 
