@@ -8,7 +8,7 @@ Here are your first steps:
 
 ### <a name="cartesius-login"></a> 1. Login to Cartesius
 
-You may use the same login credentials (e.g., sdemo0001) that were  provided to you before the start of the course. Open a terminal in your laptop 
+* You may use the same login credentials (e.g., sdemo0001) that were provided to you before the start of the course. Open a terminal in your laptop and login to Cartesius with: 
     
  ```sh
  ssh username@cartesius.surfsara.nl #replace `username` with the username assigned to you
@@ -16,7 +16,7 @@ You may use the same login credentials (e.g., sdemo0001) that were  provided to 
   
 ### <a name="cartesius-env"></a> 2. Get familiar with the login node
 
-Familiarize yourself with your environment :
+* Familiarize yourself with your environment:
 
  ```sh
  pwd
@@ -29,7 +29,7 @@ Familiarize yourself with your environment :
 
 #### 3.1 Submit a simple job 
 
-Inspect the script jobsubmit-lolcow.sh:
+* Inspect the script `jobsubmit-lolcow.sh`:
   
  ```sh
  cat jobsubmit-lolcow.sh
@@ -46,7 +46,7 @@ Inspect the script jobsubmit-lolcow.sh:
  -n: number of tasks  
  -t: max total run time of the job, here it is 10 minutes
   
-Now that you have inspected the script that will submit your job, let's submit a job by running the following:
+* Now that you have inspected the script that will submit your job, let's submit a job by running the following:
   
  ```sh
  sbatch jobsubmit-lolcow.sh  #This command will submit a job and give you a job ID in return
@@ -61,7 +61,7 @@ Now that you have inspected the script that will submit your job, let's submit a
 
 #### 3.2 Submit a job that runs a Python script
 
-Inspect the script jobsubmit-python2.sh:
+* Inspect the script `jobsubmit-python2.sh`:
 
  ```sh
  cd singularity-course
@@ -76,7 +76,8 @@ Inspect the script jobsubmit-python2.sh:
  echo "I am running on " $HOSTNAME
  singularity exec python2-docker.simg python python2.py
  ```
-Now submit the job and inspect its output:
+
+* Now submit the job and inspect its output:
   
  ```sh
  sbatch jobsubmit-python2.sh  #This command will submit a job and give you a job ID in return
@@ -91,7 +92,7 @@ Now submit the job and inspect its output:
     
 #### 3.3 Submit a job using $TMPDIR (for better performance than $HOME)
 
-If you wish to have better performance, it is better to use the local /scratch space on the worker node. This can be achieved  by using the prederfined $TMPDIR variable as described below. Inspect the jobsubmit-python2-tmpdir.sh script to see the set up:
+* If you wish to have better performance, it is better to use the local `/scratch` space on the worker node. This can be achieved  by using the prederfined `$TMPDIR` variable as described below. Inspect the `jobsubmit-python2-tmpdir.sh` script to see the set up:
  
  ```sh
  cat jobsubmit-python2-tmpdir.sh
@@ -108,11 +109,8 @@ If you wish to have better performance, it is better to use the local /scratch s
  echo "I am now present in the directory " $PWD
  singularity exec python2-docker.simg python python2.py
  ```
-> **_Food for brain:_**
->
-> * Do you recall what $TMPDIR was?
     
-Now submit a job and inspect the output:
+* Now submit a job and inspect the output:
   
  ```sh
  sbatch jobsubmit-python2-tmpdir.sh  #This command will submit a job and give you a job ID in return  
@@ -120,10 +118,15 @@ Now submit a job and inspect the output:
  ls  #Check if the output is present in your directory
  cat slurm-yourjobid.out
  ```
+ 
+ > **_Food for brain:_**
+>
+> * Do you recall the $TMPDIR variable? What is the $TMPDIR path printed in the output and where did your python script run?
+
   
 #### 3.4 Submit a job using the --pwd/--bind option
 
-Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime? You may use the /scratch-shared space that is shared amongst all the worker nodes (unlike the local /scratch space). It can be a temporary placeholder for the images when you run your jobs.
+* Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime to `/scratch` in each job? You may use the `/scratch-shared` space that is shared amongst all the worker nodes (unlike the local `/scratch` space). It can be a temporary placeholder for the images when you run your jobs.
 
  ```sh
  mkdir /scratch-shared/$USER/
@@ -131,7 +134,8 @@ Now lets say you need to submit tens of hundreds of jobs. Can you afford an over
  cp jobsubmit-python2-bind.sh ../
  cd ../
  ```
-Inspect the script jobsubmit-python2-bind.sh and run a job
+ 
+* Inspect the script jobsubmit-python2-bind.sh and run a job:
 
  ```sh
  cat jobsubmit-python2-bind.sh
@@ -153,9 +157,9 @@ Check the output of your job.
 
 > **_Food for brain:_**
 >
-> * What do you see and why? Didn't you just tell me that the /scratch-shared is shared amongst on all worker nodes.  
+> * What do you see and why? Didn't you just tell me that the /scratch-shared is shared amongst on all worker nodes?  
   
-Recall the steps we performed in the previous section for building images. Although /scratch-shared space is mounted you need to specify the correct path. There are several ways to do it as follows:
+* Recall the steps we performed in the previous section (building images) to mount a directory in the container. In this case we want to make our own `/scratch-shared` directory available in the container. There are several ways to do it as follows:
 
   ```sh
   echo "By specifying the path to the files"
@@ -167,12 +171,17 @@ Recall the steps we performed in the previous section for building images. Altho
   echo "By using the bind flag"
   singularity exec --bind /scratch-shared/$USER:/mydata /scratch-shared/$USER/python2-docker.simg python /mydata/python2.py
   ```
+ 
+> **_Food for brain:_**
+>
+> Modify the `jobsubmit-python2-bind.sh` script to make use of the data in your own `/scratch-shared` directory with any of the options above. Inspect the output of your job.
+  
   
 #### 3.5 Working with different software environments
 
 Now that we have figured out how to work with containers, let us run an example assuming a scenario that your collaborator gave you a Python script to run your analysis. It runs into errors as the script is in Python3 while you have Python2 on your laptop and you do not wish to install Python3. How do you work around it? Singularity comes to your rescue!
 
-Inspect the script jobsubmit-python.sh, submit the job and check your output:
+* Inspect the script jobsubmit-python.sh, submit the job and check your output:
 
 ```sh
 cd singularity-course
@@ -194,7 +203,7 @@ singularity exec python3.simg python python2.py
 sbatch jobsubmit-python.sh
 ```
 
-Now pay attention and run the correct version of Python script with the corresponding version of Python - change the last line of the above script to the following. You are nearly there!
+* Now pay attention and run the correct version of Python script with the corresponding version of Python - change the last line of the above script to the following. You are nearly there!
 
 ```sh
 singularity exec python3.simg python python3.py
