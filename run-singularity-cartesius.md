@@ -32,6 +32,7 @@ Here are your first steps:
 * Inspect the script `jobsubmit-lolcow.sh`:
   
  ```sh
+ cd ~
  cat jobsubmit-lolcow.sh
   
  #!/bin/bash
@@ -64,7 +65,7 @@ Here are your first steps:
 * Inspect the script `jobsubmit-python2.sh`:
 
  ```sh
- cd singularity-course
+ cd ~/singularity-course
  cat jobsubmit-python2.sh
   
  #!/bin/bash
@@ -95,6 +96,7 @@ Here are your first steps:
 * If you wish to have better performance, it is better to use the local `/scratch` space on the worker node. This can be achieved  by using the prederfined `$TMPDIR` variable as described below. Inspect the `jobsubmit-python2-tmpdir.sh` script to see the set up:
  
  ```sh
+ cd ~/singularity-course
  cat jobsubmit-python2-tmpdir.sh
   
  #!/bin/bash
@@ -129,6 +131,7 @@ Here are your first steps:
 * Now lets say you need to submit tens of hundreds of jobs. Can you afford an overhead of copying the image everytime to `/scratch` in each job? You may use the `/scratch-shared` space that is shared amongst all the worker nodes (unlike the local `/scratch` space). It can be a temporary placeholder for the images when you run your jobs.
 
  ```sh
+ cd ~/singularity-course
  mkdir /scratch-shared/$USER/
  cp python* /scratch-shared/$USER  
  cp jobsubmit-python2-bind.sh ../
@@ -138,6 +141,7 @@ Here are your first steps:
 * Inspect the script jobsubmit-python2-bind.sh and run a job:
 
  ```sh
+ cd ~
  cat jobsubmit-python2-bind.sh
   
  #!/bin/bash
@@ -184,7 +188,7 @@ Now that we have figured out how to work with containers, let us run an example 
 * Inspect the script jobsubmit-python.sh, submit the job and check your output:
 
 ```sh
-cd singularity-course
+cd ~/singularity-course
 cat jobsubmit-python.sh
 
 #!/bin/bash
