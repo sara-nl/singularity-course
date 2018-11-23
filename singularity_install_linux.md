@@ -55,12 +55,14 @@ singularity --version
 singularity selftest
 ```
 
+This will reply:
+
 >>>
 ```bash
-          + sh -c test -f /usr/local/etc/singularity/singularity.conf                           (retval=0) OK
-          + test -u /usr/local/libexec/singularity/bin/action-suid                              (retval=0) OK
-          + test -u /usr/local/libexec/singularity/bin/mount-suid                               (retval=0) OK
-          + test -u /usr/local/libexec/singularity/bin/start-suid                               (retval=0) OK
+ + sh -c test -f /usr/local/etc/singularity/singularity.conf                           (retval=0) OK
+ + test -u /usr/local/libexec/singularity/bin/action-suid                              (retval=0) OK
+ + test -u /usr/local/libexec/singularity/bin/mount-suid                               (retval=0) OK
+ + test -u /usr/local/libexec/singularity/bin/start-suid                               (retval=0) OK
 ```
 >>>
  
