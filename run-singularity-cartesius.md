@@ -141,7 +141,7 @@ Here are your first steps:
 * Inspect the script jobsubmit-python2-bind.sh and run a job:
 
  ```sh
- cd ~
+ cd ~  # you are now working in your home dir
  cat jobsubmit-python2-bind.sh
   
  #!/bin/bash
