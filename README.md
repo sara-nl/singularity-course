@@ -32,7 +32,7 @@ Scientists or application developers interested in software portability among va
 
 Program:
 --------
-9:00 - 9:20  -  Presentation: Introduction to containers
+9:00 - 9:20  -  Presentation: [Introduction to containers](https://github.com/sara-nl/singularity-course/blob/master/singularity-vu-23-11-18.pdf)
 
 9:20 - 10:00   -  Hands on: [Interacting with Docker containers on your laptop](https://github.com/sara-nl/singularity-course/blob/master/run-docker.md)
 
