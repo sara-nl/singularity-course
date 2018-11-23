@@ -39,24 +39,30 @@ Please use a bash terminal.
  
 Please use a bash terminal.
 
-        $ sudo apt-get install libarchive-dev
-        $ sudo apt-get install squashfs-tools
-        $ sudo apt install gcc
-        $ sudo apt-get install build-essential
-        $ VERSION=2.6.0
-        $ wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
-        $ tar xvf singularity-$VERSION.tar.gz
-        $ cd singularity-$VERSION/
-        $ ./configure --prefix=/usr/local
-        $ make
-        $ sudo make install
-        $ singularity --version
-        $ singularity selftest
+```bash
+sudo apt-get install libarchive-dev
+sudo apt-get install squashfs-tools
+sudo apt install gcc
+sudo apt-get install build-essential
+VERSION=2.6.0
+wget https://github.com/singularityware/singularity/releases/download/$VERSION/singularity-$VERSION.tar.gz
+tar xvf singularity-$VERSION.tar.gz
+cd singularity-$VERSION/
+./configure --prefix=/usr/local
+make
+sudo make install
+singularity --version
+singularity selftest
+```
+
+>>>
+```bash
           + sh -c test -f /usr/local/etc/singularity/singularity.conf                           (retval=0) OK
           + test -u /usr/local/libexec/singularity/bin/action-suid                              (retval=0) OK
           + test -u /usr/local/libexec/singularity/bin/mount-suid                               (retval=0) OK
           + test -u /usr/local/libexec/singularity/bin/start-suid                               (retval=0) OK
-  
+```
+>>>
  
 
 Additional information and alternative installation options may e.g., be obtained from the singularity documentation 
